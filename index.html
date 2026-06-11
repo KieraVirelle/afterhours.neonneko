@@ -1,1 +1,696 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#070102" />
+  <title>Neon Neko After Hours | Venue Details</title>
+  <meta
+    name="description"
+    content="Neon Neko After Hours venue details, network placeholders, and live venue information."
+  />
+  <style>
+    :root {
+      --bg: #050102;
+      --panel: rgba(14, 4, 7, 0.9);
+      --panel-2: rgba(24, 6, 10, 0.96);
+      --text: #fff3f5;
+      --muted: #d1abb3;
+      --line: rgba(255, 71, 95, 0.18);
+      --red: #ff1837;
+      --gold: #d0a45c;
+      --gold-soft: rgba(208, 164, 92, 0.18);
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.6);
+      --radius: 30px;
+      --radius-sm: 20px;
+      --max: 1240px;
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255, 0, 48, 0.16), transparent 24%),
+        radial-gradient(circle at 90% 14%, rgba(208, 164, 92, 0.12), transparent 22%),
+        radial-gradient(circle at 72% 82%, rgba(255, 0, 48, 0.08), transparent 24%),
+        radial-gradient(circle at 52% 56%, rgba(55, 8, 14, 0.48), transparent 42%),
+        linear-gradient(180deg, #0a0204 0%, #050102 38%, #030102 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.22;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent 92%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: -14vh -10vw auto auto;
+      width: 52vw;
+      height: 52vw;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255, 0, 48, 0.16), transparent 56%),
+        radial-gradient(circle at 30% 30%, rgba(208, 164, 92, 0.09), transparent 34%);
+      filter: blur(26px);
+      opacity: 0.82;
+      transform: rotate(-12deg);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(180deg, rgba(7, 1, 2, 0.86), rgba(7, 1, 2, 0.58));
+      box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.12),
+        inset 0 -1px 0 rgba(255, 62, 88, 0.18);
+    }
+
+    .topbar__inner {
+      min-height: 116px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-grid;
+      justify-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .brand__kicker {
+      color: #ffb5bf;
+      font-size: 0.72rem;
+      letter-spacing: 0.34em;
+      text-indent: 0.34em;
+    }
+
+    .brand__mark {
+      color: #fff3f5;
+      font-size: clamp(2rem, 4.4vw, 3.8rem);
+      letter-spacing: 0.2em;
+      text-indent: 0.2em;
+      text-shadow:
+        0 0 12px rgba(255, 84, 107, 0.5),
+        0 0 28px rgba(255, 0, 48, 0.24),
+        0 0 52px rgba(255, 0, 48, 0.12);
+      animation: neonFlickerText 2.8s infinite;
+    }
+
+    .brand__mark {
+      display: block;
+    }
+
+    .ticker {
+      position: sticky;
+      top: 116px;
+      z-index: 18;
+      padding: 14px 0 0;
+    }
+
+    .ticker__shell {
+      position: relative;
+      overflow: hidden;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 48, 74, 0.58);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255, 57, 88, 0.28), transparent 36%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent),
+        linear-gradient(90deg, rgba(255, 0, 48, 0.42), rgba(27, 4, 8, 0.92) 20%, rgba(27, 4, 8, 0.92) 80%, rgba(255, 0, 48, 0.42));
+      box-shadow:
+        0 20px 44px rgba(0, 0, 0, 0.34),
+        0 0 22px rgba(255, 0, 48, 0.2),
+        0 0 54px rgba(255, 30, 70, 0.34),
+        inset 0 0 18px rgba(255, 255, 255, 0.03),
+        inset 0 0 32px rgba(255, 0, 48, 0.18);
+      animation: tickerGlow 3.6s ease-in-out infinite;
+    }
+
+    .ticker__shell::before,
+    .ticker__shell::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .ticker__shell::before {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 42%),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 100%);
+      opacity: 0.28;
+      mix-blend-mode: screen;
+    }
+
+    .ticker__shell::after {
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255, 40, 72, 0.18), transparent 58%);
+      opacity: 0.9;
+    }
+
+    .ticker__track {
+      display: flex;
+      gap: 34px;
+      width: max-content;
+      padding: 16px 24px;
+      animation: marquee 24s linear infinite;
+      text-transform: uppercase;
+      letter-spacing: 0.34em;
+      font-size: 0.8rem;
+      color: #ffe9ec;
+      text-shadow:
+        0 0 10px rgba(255, 92, 116, 0.5),
+        0 0 22px rgba(255, 0, 48, 0.36),
+        0 0 42px rgba(255, 0, 48, 0.16);
+    }
+
+    .ticker__track span {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      white-space: nowrap;
+    }
+
+    .ticker__track span::after {
+      content: "\2022";
+      color: #ff334d;
+      text-shadow:
+        0 0 8px rgba(255, 51, 77, 0.85),
+        0 0 18px rgba(255, 0, 48, 0.42);
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    @keyframes neonFlickerText {
+      0%, 9%, 11%, 14%, 45%, 47%, 100% {
+        opacity: 1;
+        filter: blur(0);
+        text-shadow:
+          0 0 10px rgba(255, 84, 107, 0.44),
+          0 0 22px rgba(255, 0, 48, 0.22),
+          0 0 40px rgba(255, 0, 48, 0.12);
+      }
+      10%, 13%, 46% {
+        opacity: 0.4;
+        filter: blur(0.7px);
+        text-shadow:
+          0 0 4px rgba(255, 84, 107, 0.18),
+          0 0 8px rgba(255, 0, 48, 0.06);
+      }
+      12%, 15%, 48% {
+        opacity: 0.92;
+        filter: blur(0);
+      }
+    }
+
+    @keyframes tickerGlow {
+      0%, 100% {
+        box-shadow:
+          0 20px 44px rgba(0, 0, 0, 0.34),
+          0 0 22px rgba(255, 0, 48, 0.2),
+          0 0 54px rgba(255, 30, 70, 0.34),
+          inset 0 0 18px rgba(255, 255, 255, 0.03),
+          inset 0 0 32px rgba(255, 0, 48, 0.18);
+      }
+      50% {
+        box-shadow:
+          0 20px 44px rgba(0, 0, 0, 0.34),
+          0 0 30px rgba(255, 0, 48, 0.28),
+          0 0 70px rgba(255, 51, 77, 0.48),
+          inset 0 0 18px rgba(255, 255, 255, 0.03),
+          inset 0 0 42px rgba(255, 0, 48, 0.24);
+      }
+    }
+
+    .section {
+      padding: 28px 0 88px;
+    }
+
+    .venue-intro {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .venue-intro__panel {
+      position: relative;
+      padding: 32px;
+      border-radius: calc(var(--radius) + 4px);
+      border: 1px solid rgba(208, 164, 92, 0.14);
+      background:
+        radial-gradient(circle at 14% 10%, rgba(208, 164, 92, 0.12), transparent 22%),
+        radial-gradient(circle at 92% 12%, rgba(255, 0, 48, 0.16), transparent 22%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent 28%),
+        rgba(10, 3, 5, 0.96);
+      box-shadow:
+        0 26px 74px rgba(0, 0, 0, 0.34),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      overflow: hidden;
+    }
+
+    .venue-intro__panel::after {
+      content: "";
+      position: absolute;
+      inset: auto -15% -40% auto;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(208, 164, 92, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+
+    .venue-intro__panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.04), transparent 24%),
+        linear-gradient(90deg, rgba(208, 164, 92, 0.08), transparent 26%);
+      pointer-events: none;
+    }
+
+    .venue-intro__panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 380px;
+    }
+
+    .intro-panel__label {
+      color: #d9c08b;
+      text-transform: uppercase;
+      letter-spacing: 0.26em;
+      font-size: 0.74rem;
+      font-weight: 800;
+    }
+
+    .intro-panel__line {
+      color: #fff5f6;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.6rem, 3.6vw, 2.8rem);
+      line-height: 0.92;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 12px rgba(255, 84, 107, 0.36),
+        0 0 24px rgba(255, 0, 48, 0.18),
+        0 0 34px rgba(208, 164, 92, 0.08);
+    }
+
+    .intro-panel__copy {
+      margin: 0;
+      color: #f0c8cf;
+      line-height: 1.65;
+      max-width: 38ch;
+    }
+
+    .intro-panel__stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .intro-panel__stat {
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(208, 164, 92, 0.12);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent),
+        rgba(255, 255, 255, 0.025);
+    }
+
+    .intro-panel__stat span {
+      display: block;
+    }
+
+    .intro-panel__stat span:first-child {
+      color: #d9c08b;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.66rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .intro-panel__stat span:last-child {
+      color: #fff4f5;
+      line-height: 1.4;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .details-card {
+      position: relative;
+      padding: 24px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(208, 164, 92, 0.14);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 32%),
+        rgba(10, 3, 5, 0.94);
+      box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+      overflow: hidden;
+    }
+
+    .details-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -16% -42% auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(208, 164, 92, 0.12), transparent 68%);
+      pointer-events: none;
+    }
+
+    .details-card--location {
+      grid-column: span 5;
+    }
+
+    .details-card--floor {
+      grid-column: span 4;
+    }
+
+    .details-card--network {
+      grid-column: span 3;
+    }
+
+    .details-card__title {
+      margin: 0 0 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #f1deab;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      line-height: 1;
+      letter-spacing: 0.08em;
+    }
+
+    .details-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(208, 164, 92, 0.1);
+      color: #f4cfd6;
+    }
+
+    .details-line strong {
+      color: #f1deab;
+      font-weight: 700;
+    }
+
+    .details-line:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .details-note {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(208, 164, 92, 0.16);
+      background: rgba(208, 164, 92, 0.08);
+      color: #ffe0e5;
+      line-height: 1.55;
+      font-size: 0.92rem;
+    }
+
+    .network-stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .network-block {
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(208, 164, 92, 0.12);
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .network-block__title {
+      margin: 0 0 12px;
+      color: #d9c08b;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .network-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 8px 0;
+      color: #f4ccd3;
+    }
+
+    .network-row span:first-child {
+      color: #fff3f5;
+      font-weight: 700;
+    }
+
+    .network-value {
+      display: inline-block;
+      min-width: 150px;
+      min-height: 1em;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .details-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .details-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(208, 164, 92, 0.24);
+      background: rgba(208, 164, 92, 0.08);
+      color: #ffd6db;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.68rem;
+      font-weight: 800;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 86, 110, 0.34);
+      color: var(--text);
+      background:
+        linear-gradient(180deg, rgba(255, 68, 92, 0.26), rgba(118, 7, 18, 0.9));
+      box-shadow: 0 10px 28px rgba(255, 0, 48, 0.18);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+    }
+
+    @media (max-width: 1120px) {
+      .details-card--location,
+      .details-card--floor,
+      .details-card--network {
+        grid-column: span 12;
+      }
+
+      .venue-intro {
+        grid-template-columns: 1fr;
+      }
+
+      .venue-meta {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .wrap {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .topbar__inner {
+        min-height: 96px;
+      }
+
+      .ticker {
+        top: 96px;
+      }
+
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .venue-meta,
+      .intro-panel__stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="#venue-details" aria-label="Neon Neko home">
+        <span class="brand__kicker">Neon Neko</span>
+        <span class="brand__mark">Afterhours</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="wrap">
+      <div class="ticker__shell">
+        <div class="ticker__track">
+          <span>Strippers</span>
+          <span>Tables</span>
+          <span>Private Rooms</span>
+          <span>DJs</span>
+          <span>Bar</span>
+          <span>Gamba</span>
+          <span>Raffle</span>
+          <span>DRT</span>
+          <span>Scratchers</span>
+          <span>High Stakes</span>
+          <span>Strippers</span>
+          <span>Tables</span>
+          <span>Private Rooms</span>
+          <span>DJs</span>
+          <span>Bar</span>
+          <span>Gamba</span>
+          <span>Raffle</span>
+          <span>DRT</span>
+          <span>Scratchers</span>
+          <span>High Stakes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="section" id="venue-details">
+      <div class="wrap">
+        <div class="venue-intro">
+          <aside class="venue-intro__panel">
+            <div class="intro-panel__label">Tonight Inside</div>
+            <div class="intro-panel__line">House lights low. Velvet up.</div>
+            <p class="intro-panel__copy">
+              Experience Afterhours Golem: multiple stages with stunning entertainers, intimate
+              private dance areas, and luxurious champagne rooms for a discreet, personal
+              experience. Indulge in our full-service bar with top-shelf spirits and a gourmet
+              late-night menu.
+            </p>
+            <div class="intro-panel__stats">
+              <div class="intro-panel__stat">
+                <span>Casino floor</span>
+                <span>High-stakes tables, dealer energy, and a late-night rush.</span>
+              </div>
+              <div class="intro-panel__stat">
+                <span>Back room</span>
+                <span>Private rooms and quieter corners for the serious crowd.</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="details-grid">
+          <article class="details-card details-card--location">
+            <div class="details-card__title">Location</div>
+            <div class="details-line"><strong>Server</strong><span>Dynamiis - Golem</span></div>
+            <div class="details-line"><strong>Location</strong><span>Goblet, Ward 26, Plot 30</span></div>
+            <div class="details-note">Doors open Saturday 10PM ET. The room goes live when the lights drop.</div>
+            <div class="details-note">Closed this Saturday. Back on the 23rd with the floor fully lit.</div>
+          </article>
+
+          <article class="details-card details-card--floor">
+            <div class="details-card__title">Casino Floor</div>
+            <p>Strip-club energy, table games, and a room built around heat, flash, and late-night attention.</p>
+            <div class="details-actions">
+              <span class="details-pill">Main Stage</span>
+              <span class="details-pill">High-Roller Tables</span>
+              <span class="details-pill">Private Rooms</span>
+            </div>
+            <div class="details-note">
+              Dark lighting. Red neon. Loud tables. Velvet, chrome, and casino heat from the second the floor wakes up.
+            </div>
+          </article>
+
+          <article class="details-card details-card--network">
+            <div class="details-card__title">Network Access</div>
+            <div class="network-stack">
+              <div class="network-block">
+                <div class="network-block__title">Lightless Sync</div>
+                <div class="network-row"><span>Wi-Fi:</span><span class="network-value" aria-hidden="true"></span></div>
+                <div class="network-row"><span>Password:</span><span class="network-value" aria-hidden="true"></span></div>
+              </div>
+
+              <div class="network-block">
+                <div class="network-block__title">PSYNC</div>
+                <div class="network-row"><span>Wi-Fi:</span><span class="network-value" aria-hidden="true"></span></div>
+                <div class="network-row"><span>Password:</span><span class="network-value" aria-hidden="true"></span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
