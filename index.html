@@ -4,27 +4,32 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark" />
-  <meta name="theme-color" content="#070102" />
-  <title>Neon Neko After Hours | Venue Details</title>
+  <meta name="theme-color" content="#050102" />
   <meta
     name="description"
-    content="Neon Neko After Hours venue details, network placeholders, and live venue information."
+    content="Neon Neko: AFTERHOURS.exe is a dark gothic cyberpunk nightlife experience with neon red accents, purple glow, glass cards, and cinematic lounge styling."
   />
+  <title>Neon Neko: AFTERHOURS.exe</title>
   <style>
     :root {
       --bg: #050102;
-      --panel: rgba(14, 4, 7, 0.9);
-      --panel-2: rgba(24, 6, 10, 0.96);
-      --text: #fff3f5;
-      --muted: #d1abb3;
-      --line: rgba(255, 71, 95, 0.18);
-      --red: #ff1837;
-      --gold: #d0a45c;
-      --gold-soft: rgba(208, 164, 92, 0.18);
-      --shadow: 0 28px 90px rgba(0, 0, 0, 0.6);
-      --radius: 30px;
-      --radius-sm: 20px;
-      --max: 1240px;
+      --bg-soft: #0b0507;
+      --panel: rgba(12, 6, 8, 0.78);
+      --panel-strong: rgba(6, 2, 3, 0.92);
+      --line: rgba(255, 26, 26, 0.22);
+      --line-soft: rgba(255, 255, 255, 0.1);
+      --red: #ff1a1a;
+      --red-soft: rgba(255, 26, 26, 0.12);
+      --purple: #b64cff;
+      --purple-soft: rgba(182, 76, 255, 0.12);
+      --text: #fff7f7;
+      --muted: rgba(255, 247, 247, 0.72);
+      --muted-2: rgba(255, 247, 247, 0.48);
+      --radius-xl: 34px;
+      --radius-lg: 28px;
+      --radius-md: 22px;
+      --shell: min(1600px, calc(100% - 40px));
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.56);
     }
 
     * {
@@ -39,14 +44,13 @@
       margin: 0;
       min-height: 100vh;
       color: var(--text);
-      font-family: "Segoe UI", "Trebuchet MS", sans-serif;
       background:
-        radial-gradient(circle at 15% 10%, rgba(255, 0, 48, 0.16), transparent 24%),
-        radial-gradient(circle at 90% 14%, rgba(208, 164, 92, 0.12), transparent 22%),
-        radial-gradient(circle at 72% 82%, rgba(255, 0, 48, 0.08), transparent 24%),
-        radial-gradient(circle at 52% 56%, rgba(55, 8, 14, 0.48), transparent 42%),
-        linear-gradient(180deg, #0a0204 0%, #050102 38%, #030102 100%);
+        radial-gradient(circle at 12% 8%, rgba(255, 26, 26, 0.14), transparent 20%),
+        radial-gradient(circle at 82% 12%, rgba(182, 76, 255, 0.14), transparent 18%),
+        radial-gradient(circle at 50% 100%, rgba(255, 26, 26, 0.12), transparent 24%),
+        linear-gradient(180deg, #040101 0%, #070102 50%, #040101 100%);
       overflow-x: hidden;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     body::before {
@@ -54,27 +58,32 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: 0.22;
       background:
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 54px 54px;
-      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent 92%);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 14%, transparent 86%, rgba(255, 255, 255, 0.02)),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.015) 0, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 88px);
+      opacity: 0.34;
+      mix-blend-mode: screen;
     }
 
     body::after {
       content: "";
       position: fixed;
-      inset: -14vh -10vw auto auto;
-      width: 52vw;
-      height: 52vw;
+      inset: 0;
       pointer-events: none;
       background:
-        radial-gradient(circle at 50% 50%, rgba(255, 0, 48, 0.16), transparent 56%),
-        radial-gradient(circle at 30% 30%, rgba(208, 164, 92, 0.09), transparent 34%);
-      filter: blur(26px);
-      opacity: 0.82;
-      transform: rotate(-12deg);
+        radial-gradient(circle at 12% 22%, rgba(255, 255, 255, 0.05), transparent 1.5%),
+        radial-gradient(circle at 28% 34%, rgba(182, 76, 255, 0.08), transparent 1.8%),
+        radial-gradient(circle at 62% 18%, rgba(255, 26, 26, 0.07), transparent 1.9%),
+        radial-gradient(circle at 84% 30%, rgba(255, 255, 255, 0.04), transparent 1.4%),
+        radial-gradient(circle at 72% 66%, rgba(182, 76, 255, 0.05), transparent 1.7%);
+      opacity: 0.22;
+      filter: blur(1px);
+      animation: drift 18s linear infinite;
+    }
+
+    ::selection {
+      background: rgba(255, 26, 26, 0.35);
+      color: #fff;
     }
 
     a {
@@ -82,615 +91,2850 @@
       text-decoration: none;
     }
 
-    .wrap {
-      width: min(var(--max), calc(100% - 32px));
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .shell {
+      width: var(--shell);
       margin: 0 auto;
     }
 
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 20;
+    .glass {
+      background: linear-gradient(180deg, rgba(18, 8, 10, 0.84), rgba(4, 1, 2, 0.84));
       backdrop-filter: blur(18px);
-      background: linear-gradient(180deg, rgba(7, 1, 2, 0.86), rgba(7, 1, 2, 0.58));
-      box-shadow:
-        0 12px 32px rgba(0, 0, 0, 0.12),
-        inset 0 -1px 0 rgba(255, 62, 88, 0.18);
-    }
-
-    .topbar__inner {
-      min-height: 116px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-    }
-
-    .brand {
-      display: inline-grid;
-      justify-items: center;
-      gap: 6px;
-      text-transform: uppercase;
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 800;
-      line-height: 1;
-    }
-
-    .brand__kicker {
-      color: #ffb5bf;
-      font-size: 0.72rem;
-      letter-spacing: 0.34em;
-      text-indent: 0.34em;
-    }
-
-    .brand__mark {
-      color: #fff3f5;
-      font-size: clamp(2rem, 4.4vw, 3.8rem);
-      letter-spacing: 0.2em;
-      text-indent: 0.2em;
-      text-shadow:
-        0 0 12px rgba(255, 84, 107, 0.5),
-        0 0 28px rgba(255, 0, 48, 0.24),
-        0 0 52px rgba(255, 0, 48, 0.12);
-      animation: neonFlickerText 2.8s infinite;
-    }
-
-    .brand__mark {
-      display: block;
-    }
-
-    .ticker {
-      position: sticky;
-      top: 116px;
-      z-index: 18;
-      padding: 14px 0 0;
-    }
-
-    .ticker__shell {
-      position: relative;
-      overflow: hidden;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 48, 74, 0.58);
-      background:
-        radial-gradient(circle at 50% 0%, rgba(255, 57, 88, 0.28), transparent 36%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent),
-        linear-gradient(90deg, rgba(255, 0, 48, 0.42), rgba(27, 4, 8, 0.92) 20%, rgba(27, 4, 8, 0.92) 80%, rgba(255, 0, 48, 0.42));
-      box-shadow:
-        0 20px 44px rgba(0, 0, 0, 0.34),
-        0 0 22px rgba(255, 0, 48, 0.2),
-        0 0 54px rgba(255, 30, 70, 0.34),
-        inset 0 0 18px rgba(255, 255, 255, 0.03),
-        inset 0 0 32px rgba(255, 0, 48, 0.18);
-      animation: tickerGlow 3.6s ease-in-out infinite;
-    }
-
-    .ticker__shell::before,
-    .ticker__shell::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-    }
-
-    .ticker__shell::before {
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 42%),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 100%);
-      opacity: 0.28;
-      mix-blend-mode: screen;
-    }
-
-    .ticker__shell::after {
-      background:
-        radial-gradient(circle at 50% 50%, rgba(255, 40, 72, 0.18), transparent 58%);
-      opacity: 0.9;
-    }
-
-    .ticker__track {
-      display: flex;
-      gap: 34px;
-      width: max-content;
-      padding: 16px 24px;
-      animation: marquee 24s linear infinite;
-      text-transform: uppercase;
-      letter-spacing: 0.34em;
-      font-size: 0.8rem;
-      color: #ffe9ec;
-      text-shadow:
-        0 0 10px rgba(255, 92, 116, 0.5),
-        0 0 22px rgba(255, 0, 48, 0.36),
-        0 0 42px rgba(255, 0, 48, 0.16);
-    }
-
-    .ticker__track span {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      white-space: nowrap;
-    }
-
-    .ticker__track span::after {
-      content: "\2022";
-      color: #ff334d;
-      text-shadow:
-        0 0 8px rgba(255, 51, 77, 0.85),
-        0 0 18px rgba(255, 0, 48, 0.42);
-    }
-
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    @keyframes neonFlickerText {
-      0%, 9%, 11%, 14%, 45%, 47%, 100% {
-        opacity: 1;
-        filter: blur(0);
-        text-shadow:
-          0 0 10px rgba(255, 84, 107, 0.44),
-          0 0 22px rgba(255, 0, 48, 0.22),
-          0 0 40px rgba(255, 0, 48, 0.12);
-      }
-      10%, 13%, 46% {
-        opacity: 0.4;
-        filter: blur(0.7px);
-        text-shadow:
-          0 0 4px rgba(255, 84, 107, 0.18),
-          0 0 8px rgba(255, 0, 48, 0.06);
-      }
-      12%, 15%, 48% {
-        opacity: 0.92;
-        filter: blur(0);
-      }
-    }
-
-    @keyframes tickerGlow {
-      0%, 100% {
-        box-shadow:
-          0 20px 44px rgba(0, 0, 0, 0.34),
-          0 0 22px rgba(255, 0, 48, 0.2),
-          0 0 54px rgba(255, 30, 70, 0.34),
-          inset 0 0 18px rgba(255, 255, 255, 0.03),
-          inset 0 0 32px rgba(255, 0, 48, 0.18);
-      }
-      50% {
-        box-shadow:
-          0 20px 44px rgba(0, 0, 0, 0.34),
-          0 0 30px rgba(255, 0, 48, 0.28),
-          0 0 70px rgba(255, 51, 77, 0.48),
-          inset 0 0 18px rgba(255, 255, 255, 0.03),
-          inset 0 0 42px rgba(255, 0, 48, 0.24);
-      }
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 0 1px rgba(255, 26, 26, 0.08), 0 20px 60px rgba(0, 0, 0, 0.34);
     }
 
     .section {
-      padding: 28px 0 88px;
+      display: none;
+      padding: 16px 0 8px;
+      animation: pageIn 380ms ease;
     }
 
-    .venue-intro {
+    .section[data-page="home"] {
+      padding-top: 0;
+      margin-top: -132px;
+    }
+
+    .section[data-page="home"] .shell {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 14px 0 0;
+      backdrop-filter: blur(12px);
+    }
+
+    .navbar__inner {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-      margin-bottom: 24px;
-    }
-
-    .venue-intro__panel {
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 28px;
+      width: calc(100% - 48px);
+      min-height: 132px;
+      margin: 0 auto;
+      padding: 4px 0 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
       position: relative;
-      padding: 32px;
-      border-radius: calc(var(--radius) + 4px);
-      border: 1px solid rgba(208, 164, 92, 0.14);
-      background:
-        radial-gradient(circle at 14% 10%, rgba(208, 164, 92, 0.12), transparent 22%),
-        radial-gradient(circle at 92% 12%, rgba(255, 0, 48, 0.16), transparent 22%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent 28%),
-        rgba(10, 3, 5, 0.96);
-      box-shadow:
-        0 26px 74px rgba(0, 0, 0, 0.34),
-        inset 0 1px 0 rgba(255, 255, 255, 0.04);
-      overflow: hidden;
     }
 
-    .venue-intro__panel::after {
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      flex: 0 0 auto;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .brand img {
+      height: 124px;
+      width: auto;
+      max-width: 320px;
+      object-fit: cover;
+      filter: drop-shadow(0 0 14px rgba(255, 26, 26, 0.18));
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .nav {
+      position: static;
+      justify-self: center;
+      margin-left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 18px;
+      z-index: 1;
+    }
+
+    .nav button,
+    .nav a,
+    .button,
+    .category-btn,
+    .profile-btn {
+      border: 0;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.88);
+      text-transform: uppercase;
+      letter-spacing: 0.26em;
+      font-size: 13px;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .nav button,
+    .nav a {
+      border-radius: 999px;
+      padding: 12px 8px 14px;
+      position: relative;
+    }
+
+    .nav button::after,
+    .nav a::after {
       content: "";
       position: absolute;
-      inset: auto -15% -40% auto;
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(208, 164, 92, 0.16), transparent 68%);
-      pointer-events: none;
+      left: 6px;
+      right: 6px;
+      bottom: 4px;
+      height: 1px;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      background: rgba(255, 26, 26, 0.9);
+      box-shadow: 0 0 10px rgba(255, 26, 26, 0.55);
     }
 
-    .venue-intro__panel::before {
+    .nav button.active,
+    .nav button:hover,
+    .nav a:hover,
+    .profile-btn:hover {
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: none;
+    }
+
+    .nav button.active {
+      background: transparent;
+    }
+
+    .nav button.active::after,
+    .nav button:hover::after,
+    .nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0;
+      padding: 14px 18px;
+      text-decoration: none;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .button.primary {
+      border-color: rgba(255, 26, 26, 0.72);
+      background: rgba(255, 26, 26, 0.1);
+      box-shadow: 0 0 0 1px rgba(255, 26, 26, 0.14), 0 0 24px rgba(255, 26, 26, 0.2);
+    }
+
+    .button.primary:hover {
+      background: rgba(255, 26, 26, 0.18);
+      box-shadow: 0 0 0 1px rgba(255, 26, 26, 0.16), 0 0 28px rgba(255, 26, 26, 0.26);
+    }
+
+    .button.ghost {
+      border-color: rgba(182, 76, 255, 0.58);
+      background: rgba(182, 76, 255, 0.1);
+      box-shadow: 0 0 0 1px rgba(182, 76, 255, 0.12), 0 0 24px rgba(182, 76, 255, 0.12);
+    }
+
+    .button.ghost:hover {
+      background: rgba(182, 76, 255, 0.16);
+      box-shadow: 0 0 0 1px rgba(182, 76, 255, 0.16), 0 0 28px rgba(182, 76, 255, 0.2);
+    }
+
+    .button.outline {
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .title-line {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .title-line::before,
+    .title-line::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 26, 26, 0.9), rgba(182, 76, 255, 0.56), transparent);
+      box-shadow: 0 0 18px rgba(255, 26, 26, 0.28);
+    }
+
+    .title-line span {
+      font-size: 11px;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: rgba(255, 203, 203, 0.82);
+      white-space: nowrap;
+    }
+
+    .page-title {
+      text-align: center;
+      margin: 8px 0 0;
+    }
+
+    .venue-page .page-title {
+      margin-top: 0;
+    }
+
+    .venue-page .page-title .title-line {
+      margin-bottom: 10px;
+    }
+
+    .page-title h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      text-transform: uppercase;
+      color: var(--red);
+      font-size: clamp(2.8rem, 6vw, 5.8rem);
+      line-height: 0.88;
+      letter-spacing: 0.08em;
+      text-shadow: 0 0 18px rgba(255, 26, 26, 0.22);
+    }
+
+    .venue-page .page-title h2 {
+      font-size: clamp(2.2rem, 4vw, 4rem);
+    }
+
+    .page-title p {
+      margin: 14px auto 0;
+      max-width: 980px;
+      font-size: 14px;
+      line-height: 1.8;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      color: var(--muted);
+    }
+
+    .venue-page .page-title p {
+      margin-top: 10px;
+      max-width: 860px;
+      font-size: 12px;
+      line-height: 1.55;
+      letter-spacing: 0.18em;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0;
+      border: 0;
+      background: #000;
+      box-shadow: none;
+      min-height: 100vh;
+    }
+
+    .hero-grid {
+      min-height: 100vh;
+      display: block;
+      padding: 0;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.96) 18%, rgba(0, 0, 0, 0.7) 33%, rgba(0, 0, 0, 0.08) 61%, rgba(0, 0, 0, 0.0) 78%),
+        radial-gradient(circle at 60% 80%, rgba(182, 76, 255, 0.22), transparent 18%);
+    }
+
+    .hero-bg::before {
+      content: "";
+      position: absolute;
+      left: 42%;
+      right: 0;
+      top: 28%;
+      bottom: 18%;
+      background:
+        linear-gradient(180deg, rgba(255, 26, 26, 0.92), rgba(196, 0, 0, 0.88)),
+        repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0 3px, transparent 3px 14px);
+      clip-path: polygon(0 6%, 100% 0, 100% 92%, 0 100%);
+      box-shadow: 0 0 36px rgba(255, 26, 26, 0.22);
+      opacity: 0.9;
+    }
+
+    .hero-bg::after {
       content: "";
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(120deg, rgba(255, 255, 255, 0.04), transparent 24%),
-        linear-gradient(90deg, rgba(208, 164, 92, 0.08), transparent 26%);
+        linear-gradient(180deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.56)),
+        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.03), transparent 20%);
       pointer-events: none;
     }
 
-    .venue-intro__panel {
+    .hero-bg img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 74% center;
+      opacity: 0.96;
+      filter: brightness(0.82) contrast(1.14) saturate(1.16);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      width: min(720px, 38vw);
+      min-height: 100vh;
+      padding: 220px 0 36px clamp(64px, 6vw, 128px);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 18px;
-      min-height: 380px;
     }
 
-    .intro-panel__label {
-      color: #d9c08b;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding-bottom: 6px;
+      font-size: 12px;
+      letter-spacing: 0.62em;
       text-transform: uppercase;
-      letter-spacing: 0.26em;
-      font-size: 0.74rem;
-      font-weight: 800;
-    }
-
-    .intro-panel__line {
-      color: #fff5f6;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.6rem, 3.6vw, 2.8rem);
-      line-height: 0.92;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.72);
       text-shadow:
-        0 0 12px rgba(255, 84, 107, 0.36),
-        0 0 24px rgba(255, 0, 48, 0.18),
-        0 0 34px rgba(208, 164, 92, 0.08);
+        0 0 8px rgba(255, 26, 26, 0.22),
+        0 0 14px rgba(182, 76, 255, 0.12);
+      border-bottom: 1px solid rgba(255, 26, 26, 0.18);
+      box-shadow: 0 8px 16px -12px rgba(255, 26, 26, 0.65);
+      position: relative;
     }
 
-    .intro-panel__copy {
-      margin: 0;
-      color: #f0c8cf;
-      line-height: 1.65;
-      max-width: 38ch;
+    .eyebrow::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 26, 26, 0.95), rgba(255, 255, 255, 0.2), transparent);
+      box-shadow: 0 0 12px rgba(255, 26, 26, 0.65);
     }
 
-    .intro-panel__stats {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .hero-copy h1 {
+      margin: 10px 0 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(5.2rem, 9vw, 9.4rem);
+      line-height: 0.82;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--red);
+      text-shadow: 0 0 28px rgba(255, 26, 26, 0.42);
+    }
+
+    .hero-copy .subhead {
+      margin-top: 6px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 4.5vw, 4.2rem);
+      line-height: 1;
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      color: #d9b3ff;
+      text-shadow: 0 0 24px rgba(182, 76, 255, 0.3);
+    }
+
+    .hero-copy .lede {
+      max-width: 640px;
+      margin: 16px 0 0;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .button-row {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
       gap: 12px;
     }
 
-    .intro-panel__stat {
-      padding: 14px 16px;
-      border-radius: 18px;
-      border: 1px solid rgba(208, 164, 92, 0.12);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent),
-        rgba(255, 255, 255, 0.025);
+    .social-row {
+      margin-top: auto;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      color: rgba(255, 255, 255, 0.9);
     }
 
-    .intro-panel__stat span {
-      display: block;
+    .social-icon {
+      width: 22px;
+      height: 22px;
+      border: 0;
+      background: transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 180ms ease, color 180ms ease, filter 180ms ease;
     }
 
-    .intro-panel__stat span:first-child {
-      color: #d9c08b;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.66rem;
-      font-weight: 800;
-      margin-bottom: 8px;
+    .social-icon:hover {
+      transform: translateY(-1px);
+      color: var(--red);
+      filter: drop-shadow(0 0 8px rgba(255, 26, 26, 0.38));
     }
 
-    .intro-panel__stat span:last-child {
-      color: #fff4f5;
-      line-height: 1.4;
-    }
-
-    .details-grid {
+    .venue-grid {
+      margin-top: 18px;
       display: grid;
       grid-template-columns: repeat(12, minmax(0, 1fr));
-      gap: 18px;
+      gap: 12px;
     }
 
-    .details-card {
+    .venue-card {
       position: relative;
-      padding: 24px;
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(208, 164, 92, 0.14);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 32%),
-        rgba(10, 3, 5, 0.94);
-      box-shadow:
-        0 18px 50px rgba(0, 0, 0, 0.28),
-        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+      border-radius: var(--radius-lg);
+      padding: 18px;
       overflow: hidden;
+      background: linear-gradient(180deg, rgba(18, 8, 10, 0.9), rgba(4, 1, 2, 0.92));
+      border: 1px solid rgba(255, 26, 26, 0.2);
+      box-shadow: 0 0 0 1px rgba(255, 26, 26, 0.08), 0 20px 60px rgba(0, 0, 0, 0.34);
+      grid-column: span 6;
     }
 
-    .details-card::after {
+    .venue-card::before {
       content: "";
       position: absolute;
-      inset: auto -16% -42% auto;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(208, 164, 92, 0.12), transparent 68%);
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(255, 26, 26, 0.12), transparent 32%),
+        radial-gradient(circle at 92% 18%, rgba(182, 76, 255, 0.08), transparent 24%);
       pointer-events: none;
     }
 
-    .details-card--location {
-      grid-column: span 5;
+    .venue-card > * {
+      position: relative;
+      z-index: 1;
     }
 
-    .details-card--floor {
-      grid-column: span 4;
+    .venue-card--intro {
+      grid-column: span 12;
+      padding: 22px 22px 18px;
+      background:
+        linear-gradient(135deg, rgba(24, 8, 10, 0.96), rgba(6, 2, 3, 0.94)),
+        radial-gradient(circle at 10% 12%, rgba(255, 26, 26, 0.12), transparent 22%);
     }
 
-    .details-card--network {
-      grid-column: span 3;
-    }
-
-    .details-card__title {
-      margin: 0 0 14px;
+    .venue-card--intro h3 {
+      margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      color: #f1deab;
-      font-size: 1.5rem;
       text-transform: uppercase;
+      font-size: clamp(2.2rem, 4vw, 4.2rem);
+      letter-spacing: 0.14em;
+      color: var(--red);
+      line-height: 0.95;
+      text-shadow:
+        0 0 10px rgba(255, 26, 26, 0.52),
+        0 0 22px rgba(255, 26, 26, 0.34),
+        0 0 40px rgba(255, 26, 26, 0.22);
+    }
+
+    .venue-card--intro .sub {
+      margin-top: 8px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.32em;
+      color: rgba(255, 255, 255, 0.54);
+    }
+
+    .venue-card--intro p {
+      margin: 10px 0 0;
+      max-width: 1080px;
+      font-size: 12px;
+      line-height: 1.6;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .venue-card h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      text-transform: uppercase;
+      font-size: 26px;
+      letter-spacing: 0.14em;
+      color: var(--red);
       line-height: 1;
-      letter-spacing: 0.08em;
+      text-shadow:
+        0 0 8px rgba(255, 26, 26, 0.42),
+        0 0 18px rgba(255, 26, 26, 0.26);
     }
 
-    .details-line {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(208, 164, 92, 0.1);
-      color: #f4cfd6;
+    .venue-card .sub {
+      margin-top: 6px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: rgba(255, 255, 255, 0.54);
     }
 
-    .details-line strong {
-      color: #f1deab;
-      font-weight: 700;
+    .venue-card strong {
+      color: #ff6666;
+      text-shadow: 0 0 10px rgba(255, 26, 26, 0.24);
     }
 
-    .details-line:last-child {
-      border-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .details-note {
-      margin-top: 14px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      border: 1px solid rgba(208, 164, 92, 0.16);
-      background: rgba(208, 164, 92, 0.08);
-      color: #ffe0e5;
-      line-height: 1.55;
-      font-size: 0.92rem;
-    }
-
-    .network-stack {
+    .venue-list {
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
       display: grid;
-      gap: 14px;
+      gap: 8px;
     }
 
-    .network-block {
-      padding: 16px;
-      border-radius: 18px;
-      border: 1px solid rgba(208, 164, 92, 0.12);
-      background: rgba(255, 255, 255, 0.025);
+    .venue-list li {
+      padding: 9px 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.78);
+      line-height: 1.6;
+      font-size: 12px;
     }
 
-    .network-block__title {
-      margin: 0 0 12px;
-      color: #d9c08b;
-      font-size: 0.72rem;
-      font-weight: 800;
+    .venue-network {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .venue-network__block {
+      padding: 11px 12px;
+      border-radius: 14px;
+      background: rgba(0, 0, 0, 0.36);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .venue-network__block h4 {
+      margin: 0;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.38em;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .venue-network__block p {
+      margin: 8px 0 0;
+      line-height: 1.55;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .venue-badges {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .venue-badge {
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(182, 76, 255, 0.28);
+      background: rgba(182, 76, 255, 0.08);
+      color: #e7d1ff;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .venue-page .venue-copy {
+      margin: 12px 0 0;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 12px;
+    }
+
+    .venue-page .button.outline {
+      margin-top: 14px !important;
+      padding: 10px 16px;
+      font-size: 11px;
+    }
+
+    .menu-grid,
+    .staff-grid,
+    .vip-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .menu-grid {
+      grid-template-columns: 230px minmax(0, 1fr) 360px;
+      align-items: stretch;
+      margin-top: 26px;
+    }
+
+    .menu-page .page-title {
+      display: none;
+    }
+
+    .menu-page .page-pad {
+      padding: 0;
+    }
+
+    .menu-page .menu-layout {
+      margin-top: 0;
+      grid-template-columns: 240px minmax(0, 1fr) minmax(380px, 0.96fr);
+      gap: 0;
+      min-height: calc(100vh - 170px);
+      padding: 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background:
+        linear-gradient(180deg, rgba(4, 1, 2, 0.96), rgba(0, 0, 0, 0.9)),
+        radial-gradient(circle at 70% 30%, rgba(255, 26, 26, 0.08), transparent 26%);
+      box-shadow: 0 0 0 1px rgba(255, 26, 26, 0.08), 0 22px 80px rgba(0, 0, 0, 0.42);
+      overflow: hidden;
+    }
+
+    .panel {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .menu-page .panel {
+      border-radius: 0;
+      box-shadow: none;
+      background: transparent;
+      border: 0;
+    }
+
+    .menu-sidebar,
+    .menu-board,
+    .menu-feature,
+    .staff-card,
+    .vip-card {
+      background: linear-gradient(180deg, rgba(18, 8, 10, 0.84), rgba(4, 1, 2, 0.84));
+      border: 1px solid rgba(255, 26, 26, 0.2);
+      box-shadow: 0 0 0 1px rgba(255, 26, 26, 0.08), 0 20px 60px rgba(0, 0, 0, 0.34);
+    }
+
+    .menu-page .menu-sidebar {
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      background: rgba(0, 0, 0, 0.82);
+      border-right: 1px solid rgba(255, 26, 26, 0.14);
+    }
+
+    .menu-sidebar h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--red);
+      text-transform: uppercase;
+      font-size: 28px;
       letter-spacing: 0.2em;
+    }
+
+    .menu-sidebar p {
+      margin: 8px 0 16px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.42em;
+      color: rgba(255, 255, 255, 0.46);
+    }
+
+    .category-stack {
+      display: grid;
+      gap: 8px;
+    }
+
+    .category-btn {
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 2px;
+      text-align: left;
+      cursor: pointer;
+      border: 1px solid transparent;
+      color: rgba(255, 255, 255, 0.56);
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      background: transparent;
+    }
+
+    .category-btn.active {
+      border-color: rgba(255, 26, 26, 0.72);
+      background: rgba(255, 26, 26, 0.14);
+      color: #fff;
+      box-shadow: 0 0 20px rgba(255, 26, 26, 0.16);
+    }
+
+    .menu-page .menu-board {
+      padding: 18px 18px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      background: rgba(0, 0, 0, 0.34);
+      border-right: 1px solid rgba(255, 26, 26, 0.14);
+    }
+
+    .menu-board {
+      padding: 18px;
+      min-height: 100%;
+    }
+
+    .menu-board-head {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+    }
+
+    .menu-board-kicker {
+      margin: 0 0 10px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.42em;
+      color: rgba(255, 255, 255, 0.54);
+    }
+
+    .menu-board-head h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.8rem, 4.8vw, 5.4rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--red);
+      text-shadow:
+        0 0 12px rgba(255, 26, 26, 0.34),
+        0 0 28px rgba(255, 26, 26, 0.16);
+    }
+
+    .menu-board-head .hint {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.36em;
+      color: rgba(255, 255, 255, 0.46);
+    }
+
+    .menu-item {
+      width: 100%;
+      appearance: none;
+      font: inherit;
+      color: inherit;
+      display: grid;
+      grid-template-columns: 108px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 14px;
+      padding: 10px;
+      border: 1px solid rgba(255, 26, 26, 0.24);
+      background: rgba(255, 255, 255, 0.025);
+      text-align: left;
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 26, 26, 0.52);
+      background: rgba(255, 26, 26, 0.06);
+    }
+
+    .menu-item.is-selected {
+      border-color: rgba(255, 26, 26, 0.7);
+      background: rgba(255, 26, 26, 0.1);
+      box-shadow: 0 0 0 1px rgba(255, 26, 26, 0.12), 0 0 22px rgba(255, 26, 26, 0.16);
+    }
+
+    .menu-item:focus-visible,
+    .category-btn:focus-visible {
+      outline: 2px solid rgba(255, 26, 26, 0.75);
+      outline-offset: 2px;
+    }
+
+    .menu-item__thumb {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #000;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+    }
+
+    .menu-item__body {
+      min-width: 0;
+    }
+
+    .menu-item__body h4 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      text-transform: uppercase;
+      font-size: 18px;
+      letter-spacing: 0.12em;
+      color: #fff;
+    }
+
+    .menu-item__body p {
+      margin: 4px 0 0;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .menu-item__meta {
+      justify-self: end;
+      align-self: start;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(0, 0, 0, 0.34);
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #ff847f;
+      white-space: nowrap;
+    }
+
+    .menu-item--centered {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      gap: 12px;
+      padding: 16px 14px 14px;
+      text-align: center;
+    }
+
+    .menu-item--centered .menu-item__thumb {
+      width: clamp(150px, 20vw, 190px);
+    }
+
+    .menu-item--centered .menu-item__body {
+      display: grid;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .menu-item--centered .menu-item__body p {
+      max-width: 360px;
+    }
+
+    .menu-item--centered .menu-item__meta {
+      justify-self: center;
+      align-self: auto;
+      font-size: 11px;
+      padding: 7px 12px;
+      letter-spacing: 0.24em;
+    }
+
+    .menu-item--centered .menu-item__body h4 {
+      font-size: clamp(18px, 2.4vw, 22px);
+    }
+
+    .menu-item--centered .menu-item__body p {
+      font-size: 13px;
+    }
+
+    .menu-page .menu-feature {
+      min-height: 100%;
+      padding: 0;
+      background: transparent;
+    }
+
+    .menu-feature {
+      position: relative;
+      min-height: 520px;
+      display: flex;
+      align-items: flex-end;
+      padding: 0;
+      overflow: hidden;
+      --feature-image: url("images/barmenuimage.png");
+      background:
+        linear-gradient(180deg, rgba(10, 2, 4, 0.12), rgba(3, 1, 2, 0.8)),
+        radial-gradient(circle at 55% 20%, rgba(255, 26, 26, 0.36), transparent 28%),
+        radial-gradient(circle at 60% 45%, rgba(182, 76, 255, 0.14), transparent 36%);
+    }
+
+    .menu-feature::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.54) 38%, rgba(0, 0, 0, 0.12) 100%),
+        var(--feature-image);
+      background-position: 0 0, 78% center;
+      background-size: auto, cover;
+      background-repeat: no-repeat, no-repeat;
+      opacity: 1;
+      mix-blend-mode: normal;
+      filter: saturate(1.08) contrast(1.05);
+    }
+
+    .menu-feature::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.28) 52%, rgba(0, 0, 0, 0.86)),
+        radial-gradient(circle at 56% 30%, rgba(255, 26, 26, 0.12), transparent 26%),
+        radial-gradient(circle at 84% 22%, rgba(182, 76, 255, 0.18), transparent 16%);
+      pointer-events: none;
+    }
+
+    .menu-feature__copy {
+      position: relative;
+      z-index: 1;
+      width: calc(100% - 32px);
+      max-width: 460px;
+      margin: 16px;
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(0, 0, 0, 0.56);
+      backdrop-filter: blur(12px);
+    }
+
+    .menu-feature--shots .menu-feature__copy {
+      max-width: 340px;
+      padding: 14px 14px 12px;
+      margin: 14px;
+    }
+
+    .menu-feature--shots .menu-feature__copy h3 {
+      font-size: clamp(1.45rem, 2.8vw, 2.05rem);
+      letter-spacing: 0.1em;
+      line-height: 0.92;
+    }
+
+    .menu-feature--shots .menu-feature__copy .caption {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+    }
+
+    .menu-feature--shots .menu-feature__copy p {
+      margin-top: 8px;
+      font-size: 11px;
+      line-height: 1.5;
+      letter-spacing: 0.12em;
+    }
+
+    .menu-feature h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      text-transform: uppercase;
+      font-size: 3rem;
+      letter-spacing: 0.2em;
+      color: var(--red);
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      text-wrap: balance;
+    }
+
+    .menu-feature .caption {
+      margin-top: 6px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      color: rgba(255, 255, 255, 0.54);
+    }
+
+    .menu-feature__copy p {
+      margin: 12px 0 0;
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.82);
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
-    .network-row {
+    .cocktail-art {
+      margin: 16px auto;
+      max-width: 340px;
+      position: relative;
+      filter: drop-shadow(0 0 26px rgba(255, 26, 26, 0.22));
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .cocktail-art svg {
+      width: 100%;
+      height: auto;
+    }
+
+    .note-box {
+      padding: 16px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.42);
+    }
+
+    .note-box h4 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      text-transform: uppercase;
+      color: #fff;
+      font-size: 24px;
+      letter-spacing: 0.18em;
+    }
+
+    .note-box p {
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .staff-carousel {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) 56px;
+      gap: 10px;
+      align-items: center;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .staff-viewport {
+      overflow: visible;
+      min-width: 0;
+      mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+
+    .staff-grid {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      padding: 10px clamp(80px, 12vw, 200px) 18px;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      perspective: 1200px;
+      align-items: center;
+    }
+
+    .staff-grid.is-initializing .staff-card {
+      transition: none;
+    }
+
+    .staff-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .staff-card {
+      position: relative;
+      flex: 0 0 clamp(286px, 30vw, 416px);
+      padding: 12px;
+      border-radius: var(--radius-lg);
+      scroll-snap-align: center;
+      transform-origin: center center;
+      transform:
+        perspective(1200px)
+        translate3d(var(--card-x, 0px), var(--card-y, 18px), 0)
+        scale(var(--card-scale, 0.82))
+        rotateY(var(--card-rotate, 0deg));
+      opacity: var(--card-opacity, 0.58);
+      filter: saturate(var(--card-sat, 0.82)) brightness(var(--card-bright, 0.76));
+      z-index: var(--card-z, 1);
+      transition: transform 420ms ease, border-color 220ms ease, box-shadow 220ms ease, opacity 300ms ease, filter 300ms ease;
+      will-change: transform, opacity, filter;
+    }
+
+    .staff-card:hover {
+      border-color: rgba(255, 26, 26, 0.56);
+      box-shadow: 0 0 0 1px rgba(255, 26, 26, 0.12), 0 0 24px rgba(255, 26, 26, 0.14);
+      opacity: 1;
+      filter: saturate(1.02) brightness(0.92);
+    }
+
+    .staff-card.is-active {
+      opacity: 1;
+      filter: saturate(1.08) brightness(1);
+      border-color: rgba(255, 26, 26, 0.38);
+      box-shadow:
+        0 0 0 1px rgba(255, 26, 26, 0.22),
+        0 0 54px rgba(255, 26, 26, 0.24);
+    }
+
+    .staff-card.is-active .staff-photo {
+      box-shadow:
+        0 0 0 1px rgba(255, 26, 26, 0.18),
+        0 0 30px rgba(255, 26, 26, 0.28),
+        0 0 78px rgba(255, 26, 26, 0.14);
+    }
+
+    .staff-card.is-active .staff-photo img {
+      filter: saturate(1.22) contrast(1.1) drop-shadow(0 0 26px rgba(255, 26, 26, 0.34));
+    }
+
+    .staff-photo {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      aspect-ratio: 3.95 / 5;
+      border: 1px solid rgba(255, 26, 26, 0.18);
+      background: #000;
+      box-shadow:
+        0 0 0 1px rgba(255, 26, 26, 0.12),
+        0 0 18px rgba(255, 26, 26, 0.16),
+        0 0 44px rgba(255, 26, 26, 0.1);
+      animation: staffGlow 7s ease-in-out infinite;
+    }
+
+    .staff-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 420ms ease;
+      filter: saturate(1.12) contrast(1.06) drop-shadow(0 0 16px rgba(255, 26, 26, 0.22));
+    }
+
+    .staff-card:hover .staff-photo img {
+      transform: scale(1.04);
+      filter: saturate(1.18) contrast(1.08) drop-shadow(0 0 22px rgba(255, 26, 26, 0.32));
+    }
+
+    .staff-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.34) 56%, rgba(0, 0, 0, 0.82)),
+        radial-gradient(circle at 50% 20%, rgba(255, 26, 26, 0.1), transparent 36%);
+      pointer-events: none;
+    }
+
+    .staff-meta {
+      position: absolute;
+      inset: auto 0 0;
+      z-index: 1;
+      padding: 18px 16px 14px;
+      text-align: center;
+      background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.16) 8%, rgba(0, 0, 0, 0.76));
+    }
+
+    .staff-meta h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      text-shadow: 0 0 16px rgba(255, 26, 26, 0.28);
+    }
+
+    .staff-meta .role {
+      margin-top: 8px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      color: #ff9e9a;
+    }
+
+    .staff-tags {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .staff-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 26, 26, 0.24);
+      background: rgba(255, 26, 26, 0.08);
+      color: #ffd0cf;
+      font-size: 9px;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      box-shadow: 0 0 18px rgba(255, 26, 26, 0.12);
+    }
+
+    .staff-meta p {
+      margin: 10px auto 0;
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.76);
+      max-width: 30ch;
+    }
+
+    .staff-nav {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 26, 26, 0.22);
+      background: rgba(0, 0, 0, 0.52);
+      color: #fff;
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+    }
+
+    .staff-nav:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 26, 26, 0.6);
+      background: rgba(255, 26, 26, 0.08);
+      box-shadow: 0 0 18px rgba(255, 26, 26, 0.16);
+    }
+
+    .staff-nav:disabled {
+      opacity: 0.35;
+      cursor: default;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .vip-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 78% 24%, rgba(255, 26, 26, 0.24), transparent 24%),
+        radial-gradient(circle at 14% 18%, rgba(182, 76, 255, 0.16), transparent 22%),
+        radial-gradient(circle at 50% 82%, rgba(255, 26, 26, 0.1), transparent 28%),
+        linear-gradient(180deg, rgba(42, 10, 12, 0.84), rgba(10, 2, 3, 0.92));
+      opacity: 1;
+    }
+
+    .vip-icons {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px 26px;
+      padding: 16px 18px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 26, 26, 0.16);
+      background: linear-gradient(180deg, rgba(18, 6, 8, 0.52), rgba(5, 1, 2, 0.24));
+      box-shadow: 0 0 0 1px rgba(255, 26, 26, 0.06), 0 20px 52px rgba(0, 0, 0, 0.22);
+    }
+
+    .vip-feature {
+      display: grid;
+      gap: 10px;
+      justify-items: center;
+      text-align: center;
+      width: 130px;
+    }
+
+    .vip-feature .circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 999px;
+      border: 1px solid rgba(182, 76, 255, 0.7);
+      background:
+        radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.18), transparent 42%),
+        rgba(182, 76, 255, 0.14);
+      color: #ffe8ff;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 26px rgba(182, 76, 255, 0.22), inset 0 0 18px rgba(255, 255, 255, 0.03);
+    }
+
+    .vip-feature span {
+      font-size: 10px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.5;
+    }
+
+    .vip-stack {
+      display: grid;
+      gap: 26px;
+      margin-top: 24px;
+    }
+
+    .vip-grid {
+      margin-top: 0;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .vip-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      overflow: hidden;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+      filter: saturate(1.04);
+    }
+
+    .vip-card:hover {
+      transform: translateY(-4px);
+      filter: saturate(1.12);
+    }
+
+    .vip-card.silver {
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16), 0 0 42px rgba(255, 255, 255, 0.12);
+    }
+
+    .vip-card.gold {
+      box-shadow: 0 0 0 1px rgba(255, 187, 0, 0.22), 0 0 42px rgba(255, 187, 0, 0.16);
+    }
+
+    .vip-card.onyx {
+      box-shadow: 0 0 0 1px rgba(182, 76, 255, 0.22), 0 0 42px rgba(182, 76, 255, 0.16);
+    }
+
+    .vip-card.ruby {
+      box-shadow: 0 0 0 1px rgba(255, 26, 26, 0.26), 0 0 46px rgba(255, 26, 26, 0.2);
+    }
+
+    .vip-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255, 26, 26, 0.18), transparent 38%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 20%, transparent 80%, rgba(255, 26, 26, 0.08));
+      pointer-events: none;
+    }
+
+    .vip-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 18px 18px 18px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 26, 26, 0.9), rgba(255, 255, 255, 0.18), transparent);
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
+    .vip-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .vip-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding: 8px 0;
-      color: #f4ccd3;
-    }
-
-    .network-row span:first-child {
-      color: #fff3f5;
-      font-weight: 700;
-    }
-
-    .network-value {
-      display: inline-block;
-      min-width: 150px;
-      min-height: 1em;
+      gap: 12px;
+      padding-bottom: 16px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.14);
     }
 
-    .details-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
+    .vip-top h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(24px, 2.1vw, 32px);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #fff6f6;
+      max-width: 12ch;
+      text-shadow: 0 0 18px rgba(255, 26, 26, 0.22);
     }
 
-    .details-pill {
+    .vip-tier {
+      margin-top: 16px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.5)),
+        radial-gradient(circle at 50% 0%, rgba(255, 26, 26, 0.1), transparent 35%);
+      padding: 18px;
+    }
+
+    .vip-tier .label {
+      text-align: center;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .vip-tier ul {
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .vip-tier li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    .vip-tier .bullet {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 26, 26, 0.42);
+      color: #ffb2b2;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 38px;
-      padding: 0 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(208, 164, 92, 0.24);
-      background: rgba(208, 164, 92, 0.08);
-      color: #ffd6db;
+      font-size: 10px;
+      margin-top: 3px;
+      flex: 0 0 auto;
+    }
+
+    .vip-price {
+      margin-top: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 14px 14px;
+      text-align: center;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255, 255, 255, 0.98);
+      background:
+        linear-gradient(180deg, rgba(255, 26, 26, 0.12), rgba(0, 0, 0, 0.18)),
+        rgba(255, 255, 255, 0.02);
+      box-shadow: 0 0 18px rgba(255, 26, 26, 0.14);
+    }
+
+    .vip-notes {
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 26, 26, 0.32);
+      background:
+        linear-gradient(180deg, rgba(42, 16, 18, 0.8), rgba(8, 2, 4, 0.7)),
+        radial-gradient(circle at 50% 0%, rgba(255, 26, 26, 0.22), transparent 34%),
+        radial-gradient(circle at 82% 18%, rgba(182, 76, 255, 0.1), transparent 22%);
+      box-shadow: 0 0 0 1px rgba(255, 26, 26, 0.12), 0 28px 82px rgba(0, 0, 0, 0.46);
+      backdrop-filter: blur(16px) saturate(1.12);
+    }
+
+    .vip-notes h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.7rem, 2.8vw, 2.7rem);
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      font-size: 0.68rem;
-      font-weight: 800;
+      color: #fff8f8;
+      text-shadow: 0 0 18px rgba(255, 26, 26, 0.32), 0 0 36px rgba(255, 26, 26, 0.16);
     }
 
-    .btn {
+    .vip-notes p {
+      margin: 10px 0 0;
+      font-size: 12px;
+      line-height: 1.75;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .vip-notes ul {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .vip-notes li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .vip-notes .bullet {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 26, 26, 0.42);
+      color: #fff0f0;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 48px;
-      padding: 0 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 86, 110, 0.34);
-      color: var(--text);
-      background:
-        linear-gradient(180deg, rgba(255, 68, 92, 0.26), rgba(118, 7, 18, 0.9));
-      box-shadow: 0 10px 28px rgba(255, 0, 48, 0.18);
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      cursor: pointer;
+      font-size: 10px;
+      margin-top: 3px;
+      flex: 0 0 auto;
     }
 
-    @media (max-width: 1120px) {
-      .details-card--location,
-      .details-card--floor,
-      .details-card--network {
-        grid-column: span 12;
-      }
+    .vip-notes u {
+      text-decoration-color: rgba(255, 26, 26, 0.95);
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1.5px;
+    }
 
-      .venue-intro {
+    .vip-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 24px 26px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 26, 26, 0.34);
+      background:
+        linear-gradient(90deg, rgba(255, 26, 26, 0.16), rgba(10, 4, 6, 0.82) 40%, rgba(182, 76, 255, 0.12)),
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 28%);
+      box-shadow:
+        0 0 0 1px rgba(255, 26, 26, 0.12),
+        0 24px 80px rgba(0, 0, 0, 0.42),
+        0 0 42px rgba(255, 26, 26, 0.18);
+      backdrop-filter: blur(16px) saturate(1.14);
+    }
+
+    .vip-cta__copy {
+      min-width: 0;
+    }
+
+    .vip-cta .title-line {
+      margin-bottom: 10px;
+    }
+
+    .vip-cta h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #fff7f7;
+      text-shadow: 0 0 18px rgba(255, 26, 26, 0.28);
+    }
+
+    .vip-cta p {
+      margin: 10px 0 0;
+      max-width: 68ch;
+      color: rgba(255, 255, 255, 0.84);
+      line-height: 1.7;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .vip-cta .button {
+      flex: 0 0 auto;
+      min-width: 200px;
+      margin-top: 0;
+    }
+
+    .vip-card .button {
+      width: 100%;
+      margin-top: 16px;
+    }
+
+    .vip-cta .button {
+      width: auto;
+    }
+
+    .footer {
+      padding: 14px 0 28px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.35);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.38em;
+    }
+
+    .page-pad {
+      padding: 6px 0 12px;
+    }
+
+    .menu-layout,
+    .staff-layout,
+    .vip-layout {
+      margin-top: 24px;
+    }
+
+    .menu-grid-mobile {
+      display: grid;
+      gap: 16px;
+    }
+
+    .menu-side-copy {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .menu-side-copy h3 {
+      margin: 0;
+    }
+
+    .menu-side-copy .title {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--red);
+      text-transform: uppercase;
+      font-size: 28px;
+      letter-spacing: 0.2em;
+    }
+
+    .menu-side-copy .sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      color: rgba(255, 255, 255, 0.46);
+    }
+
+    .mobile-only {
+      display: none;
+    }
+
+    @keyframes pageIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes drift {
+      from {
+        transform: translate3d(0, 0, 0);
+      }
+      to {
+        transform: translate3d(0, -24px, 0);
+      }
+    }
+
+    @keyframes staffGlow {
+      0%, 100% {
+        box-shadow:
+          0 0 0 1px rgba(255, 26, 26, 0.12),
+          0 0 26px rgba(255, 26, 26, 0.2),
+          0 0 62px rgba(255, 26, 26, 0.1);
+      }
+      50% {
+        box-shadow:
+          0 0 0 1px rgba(255, 26, 26, 0.18),
+          0 0 38px rgba(255, 26, 26, 0.3),
+          0 0 82px rgba(255, 26, 26, 0.16);
+      }
+    }
+
+    @media (max-width: 1180px) {
+      .hero-grid,
+      .menu-grid {
         grid-template-columns: 1fr;
       }
 
-      .venue-meta {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .menu-page .menu-layout {
+        grid-template-columns: 1fr;
+        min-height: 0;
+      }
+
+      .venue-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .venue-card,
+      .venue-card--intro,
+      .venue-card[style] {
+        grid-column: span 1 !important;
+      }
+
+      .hero-copy {
+        width: min(740px, 90vw);
+      }
+
+      .menu-feature {
+        min-height: 0;
+      }
+
+      .menu-page .menu-sidebar,
+      .menu-page .menu-board {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 26, 26, 0.14);
+      }
+
+      .menu-page .menu-feature {
+        min-height: 360px;
+      }
+
+      .staff-grid {
+        gap: 0;
+        padding-inline: 16px;
+      }
+
+      .vip-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .vip-cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .vip-cta .button {
+        width: 100%;
+        min-width: 0;
       }
     }
 
     @media (max-width: 760px) {
-      .wrap {
-        width: min(var(--max), calc(100% - 24px));
+      .navbar__inner {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 12px;
       }
 
-      .topbar__inner {
-        min-height: 96px;
+      .brand img {
+        height: 76px;
+        max-width: 220px;
       }
 
-      .ticker {
-        top: 96px;
+      .nav {
+        position: static;
+        left: auto;
+        top: auto;
+        transform: none;
+        margin-left: 0;
+        width: 100%;
+        justify-content: flex-start;
       }
 
-      .details-grid {
+      .nav button,
+      .nav a {
+        padding: 10px 13px;
+      }
+
+      .hero-grid {
+        min-height: 100vh;
+      }
+
+      .hero-copy {
+        width: calc(100vw - 56px);
+        min-height: 100vh;
+        padding: 180px 0 28px 18px;
+      }
+
+      .hero-copy .lede {
+        letter-spacing: 0.28em;
+      }
+
+      .button-row {
+        gap: 10px;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .button-row .button {
+        width: calc(50% - 5px);
+      }
+
+      .staff-carousel {
         grid-template-columns: 1fr;
       }
 
-      .venue-meta,
-      .intro-panel__stats {
-        grid-template-columns: 1fr;
+      .staff-nav {
+        display: none;
+      }
+
+      .staff-grid {
+        padding: 8px 10px 12px;
+      }
+
+      .menu-item {
+        grid-template-columns: 86px minmax(0, 1fr);
+      }
+
+      .menu-item__meta {
+        grid-column: 2;
+        justify-self: start;
+        margin-top: 8px;
+      }
+
+      .menu-board-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .page-title p {
+        letter-spacing: 0.18em;
+      }
+
+      .mobile-only {
+        display: block;
       }
     }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="wrap topbar__inner">
-      <a class="brand" href="#venue-details" aria-label="Neon Neko home">
-        <span class="brand__kicker">Neon Neko</span>
-        <span class="brand__mark">Afterhours</span>
-      </a>
+  <header class="navbar">
+    <div class="shell navbar__inner">
+      <button class="brand" type="button" data-nav="home" aria-label="Neon Neko home">
+        <img src="images/NN_AfterHours_Logo_1080_Transparent.gif" alt="Neon Neko AFTERHOURS logo" />
+      </button>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="active" type="button" data-nav="home">Home</button>
+        <button type="button" data-nav="venue">Venue Details</button>
+        <button type="button" data-nav="menu">Menu</button>
+        <button type="button" data-nav="staff">Staff</button>
+        <button type="button" data-nav="vip">VIP</button>
+        <a href="https://discord.gg/mxJJTpwdBb" target="_blank" rel="noreferrer">Discord</a>
+      </nav>
     </div>
   </header>
 
-  <div class="ticker" aria-hidden="true">
-    <div class="wrap">
-      <div class="ticker__shell">
-        <div class="ticker__track">
-          <span>Strippers</span>
-          <span>Tables</span>
-          <span>Private Rooms</span>
-          <span>DJs</span>
-          <span>Bar</span>
-          <span>Gamba</span>
-          <span>Raffle</span>
-          <span>DRT</span>
-          <span>Scratchers</span>
-          <span>High Stakes</span>
-          <span>Strippers</span>
-          <span>Tables</span>
-          <span>Private Rooms</span>
-          <span>DJs</span>
-          <span>Bar</span>
-          <span>Gamba</span>
-          <span>Raffle</span>
-          <span>DRT</span>
-          <span>Scratchers</span>
-          <span>High Stakes</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <main>
-    <section class="section" id="venue-details">
-      <div class="wrap">
-        <div class="venue-intro">
-          <aside class="venue-intro__panel">
-            <div class="intro-panel__label">Tonight Inside</div>
-            <div class="intro-panel__line">House lights low. Velvet up.</div>
-            <p class="intro-panel__copy">
-              Experience Afterhours Golem: multiple stages with stunning entertainers, intimate
-              private dance areas, and luxurious champagne rooms for a discreet, personal
-              experience. Indulge in our full-service bar with top-shelf spirits and a gourmet
-              late-night menu.
-            </p>
-            <div class="intro-panel__stats">
-              <div class="intro-panel__stat">
-                <span>Casino floor</span>
-                <span>High-stakes tables, dealer energy, and a late-night rush.</span>
+    <section class="section active" data-page="home">
+      <div class="shell">
+        <article class="hero-card">
+          <div class="hero-bg" aria-hidden="true">
+            <img src="images/KIKI_AFTERHOURS-4.jpg" alt="" />
+          </div>
+
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <div class="eyebrow">Welcome to</div>
+              <h1>Neon Neko</h1>
+              <div class="subhead">AFTERHOURS.exe</div>
+              <div class="lede">WHERE INDULGENCE &amp; TEMPTATION COLLIDE</div>
+
+              <div class="button-row">
+                <button class="button primary" type="button" data-nav="venue">ENTER THE NIGHT</button>
+                <button class="button ghost" type="button" data-nav="vip">VIP ACCESS</button>
               </div>
-              <div class="intro-panel__stat">
-                <span>Back room</span>
-                <span>Private rooms and quieter corners for the serious crowd.</span>
+              <div class="social-row" aria-label="Social links">
+                <a class="social-icon" href="https://discord.gg/mxJJTpwdBb" target="_blank" rel="noreferrer" aria-label="Discord">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                    <path d="M20 4.5a16.7 16.7 0 0 0-4.1-1.3l-.2.4a14 14 0 0 1 3 .8 11.9 11.9 0 0 0-3.3-1.3 16.4 16.4 0 0 0-7.2 0 11.9 11.9 0 0 0-3.3 1.3 14 14 0 0 1 3-.8l-.2-.4A16.7 16.7 0 0 0 4 4.5C2.2 7 1.7 9.4 1.9 11.8a17.4 17.4 0 0 0 5.1 2.6l.6-.9a10.2 10.2 0 0 1-1.6-.8l.2-.2a12.8 12.8 0 0 0 10.6 0l.2.2c-.5.3-1 .6-1.6.8l.6.9a17.4 17.4 0 0 0 5.1-2.6c.2-2.4-.3-4.8-2.1-7.3ZM9 11.8c-.8 0-1.5-.7-1.5-1.6S8.2 8.6 9 8.6s1.5.7 1.5 1.6S9.8 11.8 9 11.8Zm6 0c-.8 0-1.5-.7-1.5-1.6s.7-1.6 1.5-1.6 1.5.7 1.5 1.6-.7 1.6-1.5 1.6Z" />
+                  </svg>
+                </a>
+                <a class="social-icon" href="#" aria-label="X">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                    <path d="M18.5 3H21l-5.9 6.7L22 21h-5.9l-4.6-5.9L6.6 21H4l6.3-7.2L2 3h6.1l4.2 5.4L18.5 3Zm-1 16h1.4L7.4 4.9H6L17.5 19Z" />
+                  </svg>
+                </a>
+                <a class="social-icon" href="#" aria-label="Instagram">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                    <path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7Zm5 2.8A4.2 4.2 0 1 1 7.8 12 4.2 4.2 0 0 1 12 7.8Zm0 1.9A2.3 2.3 0 1 0 14.3 12 2.3 2.3 0 0 0 12 9.7Zm4.9-3.1a1 1 0 1 1-1 1 1 1 0 0 1 1-1Z" />
+                  </svg>
+                </a>
               </div>
+            </div>
+
+          </div>
+
+        </article>
+      </div>
+    </section>
+
+    <section class="section menu-page" data-page="menu">
+      <div class="shell page-pad">
+        <div class="menu-layout menu-grid">
+          <aside class="menu-sidebar panel">
+            <div class="menu-side-copy">
+              <div>
+                <div class="title">Bar Menu</div>
+                <div class="sub">Labeled photos / tap a drink</div>
+              </div>
+            </div>
+            <div class="category-stack" id="category-stack"></div>
+          </aside>
+
+          <div class="menu-board panel">
+            <div class="menu-board-head">
+              <div>
+                <div class="menu-board-kicker">Curated indulgence, made to tempt.</div>
+                <h3 id="menu-title">Signature Drinks</h3>
+              </div>
+              <div class="hint mobile-only">Tap a drink for the photo</div>
+            </div>
+            <div id="menu-items" class="menu-grid-mobile"></div>
+          </div>
+
+          <aside class="menu-feature panel" id="menu-feature" role="region" aria-labelledby="feature-name" aria-live="polite">
+            <div class="menu-feature__copy">
+              <div class="menu-board-kicker">Featured pour</div>
+              <h3 id="feature-name">The Mistress</h3>
+              <div class="caption" id="feature-category">Signature Drinks</div>
+              <p id="feature-ingredients">Blackberry Gin • Elderflower • Lemon</p>
             </div>
           </aside>
         </div>
+      </div>
+    </section>
 
-        <div class="details-grid">
-          <article class="details-card details-card--location">
-            <div class="details-card__title">Location</div>
-            <div class="details-line"><strong>Server</strong><span>Dynamiis - Golem</span></div>
-            <div class="details-line"><strong>Location</strong><span>Goblet, Ward 26, Plot 30</span></div>
-            <div class="details-note">Doors open Saturday 10PM ET. The room goes live when the lights drop.</div>
-            <div class="details-note">Closed this Saturday. Back on the 23rd with the floor fully lit.</div>
+    <section class="section venue-page" data-page="venue">
+      <div class="shell page-pad">
+        <div class="page-title">
+          <div class="title-line"><span>Venue Details</span></div>
+          <h2>House Notes</h2>
+          <p>Practical details, access notes, and the quieter things guests should know before they step inside.</p>
+        </div>
+
+        <div class="venue-grid">
+          <article class="venue-card venue-card--intro">
+            <h3>House Notes</h3>
+            <div class="sub">Seductive lounge / goth venue / darker energy</div>
+            <p>
+              Afterhours lives in the low light: part private lounge, part black velvet night, with music that leans darker and a room that keeps its secrets close.
+            </p>
+            <div class="venue-badges" aria-hidden="true">
+              <span class="venue-badge">Low-lit</span>
+              <span class="venue-badge">After dark</span>
+              <span class="venue-badge">Private feel</span>
+            </div>
           </article>
 
-          <article class="details-card details-card--floor">
-            <div class="details-card__title">Casino Floor</div>
-            <p>Strip-club energy, table games, and a room built around heat, flash, and late-night attention.</p>
-            <div class="details-actions">
-              <span class="details-pill">Main Stage</span>
-              <span class="details-pill">High-Roller Tables</span>
-              <span class="details-pill">Private Rooms</span>
-            </div>
-            <div class="details-note">
-              Dark lighting. Red neon. Loud tables. Velvet, chrome, and casino heat from the second the floor wakes up.
+          <article class="venue-card" style="grid-column: span 5;">
+            <h3>Location</h3>
+            <div class="sub">Where the room lives</div>
+            <ul class="venue-list">
+              <li><strong>Server:</strong> Dynamis - Golem</li>
+              <li><strong>Location:</strong> GOblet, Ward 26, Plot 30</li>
+            </ul>
+          </article>
+
+          <article class="venue-card" style="grid-column: span 7;">
+            <h3>Network Access</h3>
+            <div class="sub">Lightless Sync / Psync</div>
+            <div class="venue-network">
+              <div class="venue-network__block">
+                <h4>Lightless Sync</h4>
+                <p>
+                  <strong>Wifi:</strong> WIFIMSS-HY4JXFGE8TMS<br />
+                  <strong>Password:</strong> NeonNekoPub
+                </p>
+              </div>
+              <div class="venue-network__block">
+                <h4>Psync</h4>
+                <p>
+                  <strong>Wifi:</strong> MSS-5290P1C2JY80<br />
+                  <strong>Password:</strong> NeonNekoPub
+                </p>
+              </div>
             </div>
           </article>
 
-          <article class="details-card details-card--network">
-            <div class="details-card__title">Network Access</div>
-            <div class="network-stack">
-              <div class="network-block">
-                <div class="network-block__title">Lightless Sync</div>
-                <div class="network-row"><span>Wi-Fi:</span><span class="network-value" aria-hidden="true"></span></div>
-                <div class="network-row"><span>Password:</span><span class="network-value" aria-hidden="true"></span></div>
-              </div>
+          <article class="venue-card" style="grid-column: span 4;">
+            <h3>Discord</h3>
+            <div class="sub">The house signal</div>
+            <p class="venue-copy">
+              Use the same channel you already know. It keeps the room connected without shouting over the mood.
+            </p>
+            <a class="button outline" href="https://discord.gg/mxJJTpwdBb" target="_blank" rel="noreferrer">Join Discord</a>
+          </article>
 
-              <div class="network-block">
-                <div class="network-block__title">PSYNC</div>
-                <div class="network-row"><span>Wi-Fi:</span><span class="network-value" aria-hidden="true"></span></div>
-                <div class="network-row"><span>Password:</span><span class="network-value" aria-hidden="true"></span></div>
-              </div>
-            </div>
+          <article class="venue-card" style="grid-column: span 8;">
+            <h3>Events</h3>
+            <div class="sub">Weekly activities & rotating club nights</div>
+            <p class="venue-copy">
+              Weekly Activities and rotating club nights built around community games and big-room energy.
+            </p>
+            <ul class="venue-list">
+              <li><strong>DRT Bingo:</strong> 200 Bogo Tickets</li>
+              <li><strong>Bingo Cards:</strong> 250k each</li>
+              <li><strong>Raffle Tickets:</strong> 100k each</li>
+              <li><strong>Bogo Raffle Drop:</strong> 200, first come first serve</li>
+            </ul>
+          </article>
+
+          <article class="venue-card" style="grid-column: span 6;">
+            <h3>Games & Gamba</h3>
+            <div class="sub">Play for the night</div>
+            <ul class="venue-list">
+              <li>Black Jack</li>
+              <li>Truth or Dare</li>
+              <li>Gamba Drinks</li>
+              <li>Scratchers 200k / 150k VIP</li>
+              <li>Bingo Cards - 250k each</li>
+            </ul>
+          </article>
+
+          <article class="venue-card" style="grid-column: span 6;">
+            <h3>Music & Bar</h3>
+            <div class="sub">Resident DJs / bar service / darker sound</div>
+            <p class="venue-copy">
+              Resident DJs, bar service, and a darker palette of sound to keep the room moving with a low, velvet pressure.
+            </p>
           </article>
         </div>
       </div>
     </section>
+
+    <section class="section" data-page="staff">
+      <div class="shell page-pad">
+        <div class="page-title">
+          <div class="title-line"><span>Staff Page</span></div>
+          <h2>Meet the Staff</h2>
+          <p>Meet the wonderful staff who keep Neon Neko glowing, moving, and unforgettable every night.</p>
+        </div>
+
+        <div class="staff-carousel staff-layout">
+          <button class="staff-nav" type="button" data-staff-nav="prev" aria-label="Previous staff member">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M15 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+
+          <div class="staff-viewport">
+            <div class="staff-grid" id="staff-grid"></div>
+          </div>
+
+          <button class="staff-nav" type="button" data-staff-nav="next" aria-label="Next staff member">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-page="vip">
+      <div class="shell page-pad" style="position: relative;">
+        <div class="vip-bg" aria-hidden="true"></div>
+
+        <div class="page-title" style="position: relative;">
+          <div class="title-line"><span>VIP Page</span></div>
+          <h2>VIP Access</h2>
+          <p>Exclusive privileges, membership tiers, and full VIP notes for both venues.</p>
+        </div>
+
+        <div class="vip-icons">
+          <div class="vip-feature">
+            <div class="circle">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="M5 12h14" />
+                <path d="M12 5l7 7-7 7" />
+              </svg>
+            </div>
+            <span>Skip the line</span>
+          </div>
+          <div class="vip-feature">
+            <div class="circle">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="M5 16h14" />
+                <path d="M7 16V9a5 5 0 0 1 10 0v7" />
+                <path d="M8 16v3M16 16v3" />
+              </svg>
+            </div>
+            <span>Private lounges</span>
+          </div>
+          <div class="vip-feature">
+            <div class="circle">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="M4 8h16v12H4z" />
+                <path d="M8 4v4M16 4v4M4 12h16" />
+              </svg>
+            </div>
+            <span>Exclusive events</span>
+          </div>
+          <div class="vip-feature">
+            <div class="circle">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                <path d="M12 3l2.8 5.4L21 9l-4.5 4.2 1.1 6.1L12 16.9 6.4 19.3 7.5 13.2 3 9l6.2-.6L12 3Z" />
+              </svg>
+            </div>
+            <span>Premium experiences</span>
+          </div>
+        </div>
+
+        <div class="vip-stack">
+          <div class="vip-grid" id="vip-grid"></div>
+
+          <article class="vip-notes">
+            <div class="title-line"><span>Membership Information</span></div>
+            <h3>VIP Membership Information</h3>
+            <p>Higher tiers include every benefit from the tiers below them.</p>
+            <ul>
+              <li><span class="bullet">+</span><span>VIP Memberships are valid at both Neon Neko and Neon Neko: AFTERHOURS.exe.</span></li>
+              <li><span class="bullet">+</span><span>VIP Members receive priority entry before general admission whenever venue capacity is reached.</span></li>
+              <li><span class="bullet">+</span><span>Lifetime VIP Members may bring up to 5 guests into VIP areas.</span></li>
+              <li><span class="bullet">+</span><span>Complimentary Gpose Sessions are subject to photographer availability.</span></li>
+              <li><span class="bullet">+</span><span>VIP perks may vary depending on venue capacity, staffing, and event availability.</span></li>
+              <li><span class="bullet">+</span><span>VIP Membership does not exempt members from venue rules or staff discretion.</span></li>
+              <li><span class="bullet">+</span><span>Neon Neko reserves the right to modify membership benefits at any time as needed.</span></li>
+              <li><span class="bullet">+</span><span><u>VIP Perks Exclusive to Neon Neko: AFTERHOURS.exe</u> will be underlined.</span></li>
+            </ul>
+          </article>
+
+          <article class="vip-cta">
+            <div class="vip-cta__copy">
+              <div class="title-line"><span>Join VIP</span></div>
+              <h3>Step Into The VIP Circle</h3>
+              <p>Contact the team in Discord to ask about membership, perks, and how to get set up for the night.</p>
+            </div>
+            <a class="button primary" href="https://discord.gg/mxJJTpwdBb" target="_blank" rel="noreferrer">Join Discord</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
   </main>
+
+  <footer class="footer">Neon Neko: AFTERHOURS.exe</footer>
+
+  <script>
+    const pages = ["home", "venue", "menu", "staff", "vip"];
+    const navButtons = Array.from(document.querySelectorAll("[data-nav]"));
+    const sections = Array.from(document.querySelectorAll(".section[data-page]"));
+    let staffAutoRotateTimer = null;
+    let staffCarouselIndex = 0;
+
+    const drinks = {
+      "Signature Drinks": [
+        { name: "The Mistress", description: "Blackberry Gin • Elderflower • Lemon", image: "images/TheMistress.png" },
+        { name: "The Handler", description: "Espresso Vodka • Coffee Liqueur • Cream", image: "images/TheHandler.png" },
+        { name: "The Contract", description: "Bourbon • Dark Cherry • Smoked Vanilla", image: "images/TheContract.png" }
+      ],
+      Cocktails: [
+        { name: "Black Card", description: "Dark Rum • Cola • Vanilla", image: "images/BlackCard.png" },
+        { name: "Red Light District", description: "Vodka • Blood Orange • Cranberry", image: "images/RedLightDistrict.png" },
+        { name: "Velvet Collar", description: "Blackberry Vodka • Lemon • Soda", image: "images/VelvetCollar.png" },
+        { name: "Temptation", description: "Peach Whiskey • Ginger Beer • Lemon", image: "images/Temptation.png" }
+      ],
+      Shots: [
+        { name: "Collar Me", description: "Vanilla Cream Shot", image: "images/CollarMe.png" },
+        { name: "Leather & Lace", description: "Cinnamon Whiskey Shot", image: "images/Leather&Lace.png" },
+        { name: "Aftercare", description: "Chocolate Espresso Cream Shot", image: "images/Aftercare.png" }
+      ],
+      "Non-Alcoholic": [
+        { name: "Safe Word", description: "Blackberry Lemonade • Mint", image: "images/Safeword.png" },
+        { name: "Neon Kiss", description: "Dragonfruit Lemon Soda", image: "images/NeonKiss.png" },
+        { name: "Velvet Touch", description: "Cherry Vanilla Cream Soda", image: "images/VelvetTouch.png" }
+      ]
+    };
+
+    const staff = [
+      {
+        name: "Kiera Virelle",
+        role: "Lucky 69 DRT Host",
+        description: "Co-owner of the house and the one calling the Lucky 69 round.",
+        images: ["images/KieraVirelle.jpg", "images/Kiera_Silhouette.png"],
+        tags: ["Owner"]
+      },
+      {
+        name: "Gyl Valentyne",
+        role: "Gamba Dealer",
+        description: "Keeps the table hot and the odds colder.",
+        images: ["images/Gyl.png", "images/Gyl_Silhouette.png"],
+        imagePosition: "center 18%"
+      },
+      {
+        name: "Killala Embers",
+        role: "Gamba Dealer",
+        description: "All heat, no hesitation.",
+        images: ["images/NN_AfterHours_Logo_1080_Transparent.gif"]
+      },
+      {
+        name: "Lupin",
+        role: "Bartender",
+        description: "Fast hands, sharp pours.",
+        images: ["images/NN_AfterHours_Logo_1080_Transparent.gif"]
+      },
+      {
+        name: "Naemona",
+        role: "Truth or Dare Host",
+        description: "She keeps the room honest and reckless.",
+        images: ["images/Naemona.png", "images/Naemona_Silhouette.png"]
+      },
+      {
+        name: "Judas",
+        role: "Dancer",
+        description: "Built for the spotlight and the last look.",
+        images: ["images/Judas.png", "images/Judas_Silhouette.png"],
+        imagePosition: "center 12%"
+      },
+      {
+        name: "Lufas",
+        role: "Dancer",
+        description: "Moves like the beat owes him money.",
+        images: ["images/Lufas.png", "images/Lufas_Silhouette.png", "images/Lufastransparent.png"],
+        imagePosition: "center 8%"
+      },
+      {
+        name: "Trina",
+        role: "Dancer",
+        description: "Clean lines, heavy presence.",
+        images: ["images/NN_AfterHours_Logo_1080_Transparent.gif"]
+      },
+      {
+        name: "Mira",
+        role: "Dancer",
+        description: "Quiet until the room is watching.",
+        images: ["images/NN_AfterHours_Logo_1080_Transparent.gif"]
+      },
+      {
+        name: "Rhea",
+        role: "Dancer",
+        description: "Already knows where the camera is.",
+        images: ["images/RheaRose.png", "images/Rhea.png", "images/Rhea_Silhouette.png"]
+      },
+      {
+        name: "Lattea",
+        role: "Dancer",
+        description: "Soft on the eyes, sharp in motion.",
+        images: ["images/NN_AfterHours_Logo_1080_Transparent.gif"]
+      },
+      {
+        name: "Bryn",
+        role: "Bartender",
+        description: "Calm hands, dangerous speed.",
+        images: ["images/NN_AfterHours_Logo_1080_Transparent.gif"]
+      },
+      {
+        name: "Nyxi",
+        role: "Bingo Host",
+        description: "Calls the numbers like she owns the deck.",
+        images: ["images/NyxiCinnabelle.png", "images/Nyxi.png", "images/Nyxi_Silhouette.png", "images/NyxiTransparent.png"]
+      },
+      {
+        name: "Nilah",
+        role: "Raffle",
+        description: "Loves a prize pool and a dramatic draw.",
+        images: ["images/Nilah.png", "images/Nilah2.png", "images/Nilah_Silhouette.png"],
+        tags: ["Owner"]
+      },
+      {
+        name: "Alys",
+        role: "Scratchers",
+        description: "Keeps the paper moving and the room guessing.",
+        images: ["images/Alysnoxhart.png", "images/Alys.png", "images/Alys_Silhouette.png"],
+        imagePosition: "center 14%"
+      }
+    ];
+
+    const vipTiers = [
+      {
+        name: "Nightly VIP",
+        price: "200,000 Gil",
+        tone: "silver",
+        label: "Nightly Access",
+        benefits: ["Access to VIP lounge", "5 Complimentary Shots from the Bar"]
+      },
+      {
+        name: "Monthly VIP / Discord Boost",
+        price: "2,000,000 Gil",
+        tone: "gold",
+        label: "Boost Tier",
+        benefits: [
+          "Includes every benefit from the previous tier.",
+          "VIP Area Access +1 Guest",
+          "VIP Discord Role",
+          "1 Free Bingo Card Per Opening",
+          "One free photobooth redemption per month",
+          "Raffle Tickets Reduced to 95,000 Gil Each",
+          "1 Complimentary Gpose Session Per Month (Photographer Availability Permitting)",
+          "Gamba Priority Access"
+        ]
+      },
+      {
+        name: "Yearly VIP",
+        price: "24,000,000 Gil",
+        tone: "onyx",
+        label: "High Roller Tier",
+        benefits: [
+          "Includes every benefit from the previous tiers.",
+          "VIP Area Access +3 Guests",
+          "Priority Entry During Capacity Restrictions",
+          "2 Free Bingo Cards Per Opening",
+          "Scratcher Price Reduced to 150,000 Gil Each",
+          "Raffle Tickets Reduced to 90,000 Gil Each",
+          "Up to 3 Complimentary Gpose Sessions Per Month (Photographer Availability Permitting)",
+          "Priority Photobooth Access",
+          "One free photobooth redemption per opening (2 total a month)",
+          "Priority Gamba Waitlist Access (When Applicable)",
+          "High Roller Recognition",
+          "Reserved VIP Booth Access (When Available)",
+          "Maximum Table Bet: 2,000,000 Gil"
+        ]
+      },
+      {
+        name: "Lifetime VIP",
+        price: "50,000,000 Gil",
+        tone: "ruby",
+        label: "Legacy Tier",
+        benefits: [
+          "Includes every benefit from all previous tiers.",
+          "VIP Area Access +5 Guests",
+          "Highest Priority Entry During Capacity Restrictions",
+          "Complimentary Drinks from the Bar",
+          "3 Free Bingo Cards Per Opening",
+          "Scratcher Price Reduced to 150,000 Gil Each",
+          "Raffle Tickets Reduced to 80,000 Gil Each",
+          "Up to 4 Complimentary Gpose Sessions Per Month (Photographer Availability Permitting)",
+          "Priority Photobooth Access",
+          "One free photobooth redemption per opening (4~5 total a month)",
+          "Featured on the Neon Neko Website/Carrd as a Contributor",
+          "Featured on Weekly Venue Announcement Flyers",
+          "Highest Gamba Priority Status",
+          "Maximum Table Bet: 3,000,000 Gil",
+          "Reserved VIP Booth Access (When Available)",
+          "VIP Booth Reservation Priority",
+          "Priority Access to Limited-Capacity Events & Activities",
+          "High Roller Recognition"
+        ]
+      }
+    ];
+
+    const drinkFallbackImage = "images/barmenuimage.png";
+    const staffFallbackImage = "images/NN_AfterHours_Logo_1080_Transparent.gif";
+    const staffLoopBuffer = 2;
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function getStaffGroupRank(person) {
+      const role = String(person.role || "").toLowerCase();
+      const tags = Array.isArray(person.tags) ? person.tags : [];
+
+      if (tags.includes("Owner")) return 0;
+      if (role.includes("dancer")) return 1;
+      if (role.includes("bartender")) return 2;
+      if (role.includes("bingo host")) return 3;
+      return 4;
+    }
+
+    function getOrderedStaff() {
+      return staff
+        .map((person, index) => ({ person, index, rank: getStaffGroupRank(person) }))
+        .sort((a, b) => a.rank - b.rank || a.index - b.index)
+        .map((entry) => entry.person);
+    }
+
+    function getDrinkImage(drink) {
+      return drink.image || drinkFallbackImage;
+    }
+
+    function setFeatureImage(path) {
+      const feature = document.getElementById("menu-feature");
+      if (!feature) return;
+      const safePath = String(path || drinkFallbackImage).replace(/"/g, '\\"');
+      feature.style.setProperty("--feature-image", `url("${safePath}")`);
+    }
+
+    function updateFeature(category, drink) {
+      const featureName = document.getElementById("feature-name");
+      const featureCategory = document.getElementById("feature-category");
+      const featureIngredients = document.getElementById("feature-ingredients");
+      const feature = document.getElementById("menu-feature");
+
+      if (featureName) featureName.textContent = drink.name;
+      if (featureCategory) featureCategory.textContent = category;
+      if (featureIngredients) featureIngredients.textContent = drink.description;
+      if (feature) {
+        feature.classList.toggle("menu-feature--shots", category === "Shots");
+      }
+      setFeatureImage(getDrinkImage(drink));
+    }
+
+    function setPage(page) {
+      if (!pages.includes(page)) page = "home";
+
+      sections.forEach((section) => {
+        section.classList.toggle("active", section.dataset.page === page);
+      });
+
+      navButtons.forEach((button) => {
+        const active = button.dataset.nav === page;
+        button.classList.toggle("active", active);
+        if (button.tagName === "BUTTON") {
+          if (active) button.setAttribute("aria-current", "page");
+          else button.removeAttribute("aria-current");
+        }
+      });
+
+      if (location.hash.replace("#", "") !== page) {
+        try {
+          history.replaceState(null, "", "#" + page);
+        } catch (error) {
+          location.hash = page;
+        }
+      }
+
+      syncStaffAutoplay();
+    }
+
+    function cocktailSvg() {
+      return `
+        <svg viewBox="0 0 420 540" width="100%" aria-hidden="true">
+          <defs>
+            <linearGradient id="glassStroke" x1="0%" x2="100%" y1="0%" y2="100%">
+              <stop offset="0%" stop-color="#ff1a1a" />
+              <stop offset="100%" stop-color="#b64cff" />
+            </linearGradient>
+            <linearGradient id="glassFill" x1="0%" x2="0%" y1="0%" y2="100%">
+              <stop offset="0%" stop-color="#ff8a8a" stop-opacity="0.92" />
+              <stop offset="100%" stop-color="#7b0505" stop-opacity="0.85" />
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="6" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <g filter="url(#glow)">
+            <path d="M98 118h228l-28 138H126L98 118Z" fill="none" stroke="url(#glassStroke)" stroke-width="5" />
+            <path d="M132 138h160l-20 102H152L132 138Z" fill="url(#glassFill)" opacity="0.92" />
+            <path d="M162 258h96v86h-96z" fill="none" stroke="url(#glassStroke)" stroke-width="5" />
+            <path d="M195 344v114" stroke="url(#glassStroke)" stroke-width="6" stroke-linecap="round" />
+            <path d="M145 464h100" stroke="url(#glassStroke)" stroke-width="8" stroke-linecap="round" />
+            <path d="M138 116l-20-20M282 116l18-18" stroke="url(#glassStroke)" stroke-width="5" stroke-linecap="round" />
+            <circle cx="175" cy="196" r="8" fill="#ffd4d4" opacity="0.9" />
+            <circle cx="236" cy="208" r="7" fill="#ffd4d4" opacity="0.9" />
+            <circle cx="210" cy="170" r="9" fill="#ffd4d4" opacity="0.82" />
+            <path d="M108 150l-24-12M312 160l24-12M88 214l-28 4M330 228l26 8" stroke="#ff1a1a" stroke-width="4" stroke-linecap="round" opacity="0.75" />
+          </g>
+        </svg>
+      `;
+    }
+
+    function renderMenu(category, selectedIndex = 0) {
+      const items = drinks[category] || drinks["Signature Drinks"];
+      const activeIndex = Math.min(Math.max(selectedIndex, 0), items.length - 1);
+      const centeredLayout = category === "Non-Alcoholic";
+      const menuTitle = document.getElementById("menu-title");
+      const menuItems = document.getElementById("menu-items");
+
+      if (menuTitle) {
+        menuTitle.textContent = category;
+      }
+
+      if (menuItems) {
+        menuItems.innerHTML = items
+          .map(
+            (item, index) => `
+              <button class="menu-item ${centeredLayout ? "menu-item--centered" : ""} ${index === activeIndex ? "is-selected" : ""}" type="button" data-category="${escapeHtml(category)}" data-index="${index}">
+                <img class="menu-item__thumb" src="${escapeHtml(getDrinkImage(item))}" alt="${escapeHtml(item.name)}" />
+                <div class="menu-item__body">
+                  <h4>${escapeHtml(item.name)}</h4>
+                  <p>${escapeHtml(item.description)}</p>
+                </div>
+                <div class="menu-item__meta">${escapeHtml(category)}</div>
+              </button>
+            `
+          )
+          .join("");
+
+        menuItems.querySelectorAll(".menu-item__thumb").forEach((img) => {
+          img.addEventListener(
+            "error",
+            () => {
+              img.src = drinkFallbackImage;
+            },
+            { once: true }
+          );
+        });
+
+        menuItems.querySelectorAll(".menu-item").forEach((button) => {
+          button.addEventListener("click", () => {
+            renderMenu(button.dataset.category, Number(button.dataset.index || 0));
+          });
+        });
+      }
+
+      updateFeature(category, items[activeIndex] || items[0]);
+
+      document.querySelectorAll(".category-btn").forEach((button) => {
+        button.classList.toggle("active", button.dataset.category === category);
+      });
+    }
+
+    function renderCategories() {
+      const stack = document.getElementById("category-stack");
+      stack.innerHTML = Object.keys(drinks)
+        .map(
+          (category, index) => `
+            <button class="category-btn ${index === 0 ? "active" : ""}" type="button" data-category="${escapeHtml(category)}">${escapeHtml(category)}</button>
+          `
+        )
+        .join("");
+
+      stack.querySelectorAll("[data-category]").forEach((button) => {
+        button.addEventListener("click", () => renderMenu(button.dataset.category));
+      });
+
+      renderMenu("Signature Drinks", 0);
+    }
+
+    function renderStaffCard(person, realIndex, loopType = "real") {
+      const cloneAttr = loopType === "real" ? "" : ' aria-hidden="true"';
+      const cloneClass = loopType === "real" ? "" : " staff-card--clone";
+
+      return `
+            <article class="staff-card${cloneClass}" data-loop-type="${loopType}" data-real-index="${realIndex}"${cloneAttr}>
+              <div class="staff-photo">
+                <img src="${person.images[0] || staffFallbackImage}" alt="${person.name} - ${person.role}" loading="lazy" decoding="async" style="object-position: ${escapeHtml(person.imagePosition || "center")};" data-fallbacks='${escapeHtml(JSON.stringify((person.images || []).slice(1).concat([staffFallbackImage])))}' />
+                <div class="staff-meta">
+                  <h3>${person.name}</h3>
+                  <div class="role">${person.role}</div>
+                  ${
+                    Array.isArray(person.tags) && person.tags.length
+                      ? `<div class="staff-tags">${person.tags.map((tag) => `<span class="staff-tag">${escapeHtml(tag)}</span>`).join("")}</div>`
+                      : ""
+                  }
+                  <p>${person.description}</p>
+                </div>
+              </div>
+            </article>
+      `;
+    }
+
+    function renderStaff() {
+      const track = document.getElementById("staff-grid");
+      if (!track) return;
+
+      const orderedStaff = getOrderedStaff();
+      const loopSize = Math.min(staffLoopBuffer, Math.max(0, staff.length - 1));
+      const loopedStaff = [
+        ...orderedStaff.slice(-loopSize).map((person, index) => ({ person, realIndex: orderedStaff.length - loopSize + index, loopType: "start" })),
+        ...orderedStaff.map((person, realIndex) => ({ person, realIndex, loopType: "real" })),
+        ...orderedStaff.slice(0, loopSize).map((person, realIndex) => ({ person, realIndex, loopType: "end" }))
+      ];
+
+      track.classList.add("is-initializing");
+      track.innerHTML = loopedStaff
+        .map(({ person, realIndex, loopType }) => renderStaffCard(person, realIndex, loopType))
+        .join("");
+
+      track.querySelectorAll(".staff-photo img").forEach((img) => {
+        img.addEventListener("error", () => {
+          try {
+            const fallbacks = JSON.parse(img.dataset.fallbacks || "[]");
+            const next = fallbacks.shift();
+            img.dataset.fallbacks = JSON.stringify(fallbacks);
+            if (next) {
+              img.src = next;
+              return;
+            }
+          } catch (error) {
+            // Fall through to a safe default below.
+          }
+          img.src = staffFallbackImage;
+        });
+      });
+
+      setupStaffCarousel();
+      window.requestAnimationFrame(() => {
+        const firstRealCard = track.querySelector('.staff-card[data-loop-type="real"][data-real-index="0"]');
+        if (firstRealCard) {
+          track.scrollLeft = getCenteredScrollLeft(track, firstRealCard);
+        }
+        updateStaffCarouselState();
+        window.requestAnimationFrame(() => {
+          track.classList.remove("is-initializing");
+        });
+        window.setTimeout(() => {
+          if (isStaffPageActive()) {
+            startStaffAutoplay();
+          }
+        }, 900);
+      });
+    }
+
+    function getStaffScrollStep(track) {
+      const card = track.querySelector(".staff-card");
+      if (!card) return track.clientWidth * 0.9;
+      const gap = parseFloat(getComputedStyle(track).gap || "0") || 0;
+      return card.getBoundingClientRect().width + gap;
+    }
+
+    function getCenteredScrollLeft(track, card) {
+      const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+      const desired = card.offsetLeft - (track.clientWidth - card.offsetWidth) / 2;
+      return Math.max(0, Math.min(desired, maxScroll));
+    }
+
+    function getRealStaffCard(track, realIndex) {
+      return track.querySelector(`.staff-card[data-loop-type="real"][data-real-index="${realIndex}"]`);
+    }
+
+    function getCurrentStaffCard(track) {
+      return track.querySelector(".staff-card.is-active") || getRealStaffCard(track, 0) || getStaffCards(track)[0] || null;
+    }
+
+    function scrollStaffToCard(track, card, behavior = "smooth") {
+      if (!card) return;
+      track.scrollTo({ left: getCenteredScrollLeft(track, card), behavior });
+    }
+
+    function jumpStaffToRealCard(track, realIndex) {
+      const target = getRealStaffCard(track, realIndex);
+      if (!target) return;
+
+      track.dataset.loopJumping = "true";
+      track.scrollTo({ left: getCenteredScrollLeft(track, target), behavior: "auto" });
+      window.requestAnimationFrame(() => {
+        delete track.dataset.loopJumping;
+        updateStaffCarouselState();
+      });
+    }
+
+    function updateStaffCarouselState() {
+      const track = document.getElementById("staff-grid");
+      if (!track || track.dataset.loopJumping === "true") return;
+
+      const prevButton = document.querySelector('[data-staff-nav="prev"]');
+      const nextButton = document.querySelector('[data-staff-nav="next"]');
+      const cards = getStaffCards(track);
+      const viewportCenter = track.scrollLeft + track.clientWidth / 2;
+      let activeCard = null;
+      let activeDistance = Infinity;
+      let activeIndex = 0;
+
+      cards.forEach((card, index) => {
+        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+        const distance = Math.abs(cardCenter - viewportCenter);
+        const delta = (cardCenter - viewportCenter) / Math.max(track.clientWidth * 0.48, 1);
+        const absDelta = Math.min(1.2, Math.abs(delta));
+        const direction = delta === 0 ? 0 : delta > 0 ? 1 : -1;
+        const scale = Math.max(0.82, 1 - absDelta * 0.11);
+        const offsetX = direction * absDelta * 42;
+        const offsetY = absDelta * 10;
+        const rotateY = direction * absDelta * 8;
+        const opacity = Math.max(0.38, 1 - absDelta * 0.32);
+        const saturation = Math.max(0.82, 1 - absDelta * 0.16);
+        const brightness = Math.max(0.82, 1 - absDelta * 0.06);
+        const zIndex = Math.round(1000 - absDelta * 600);
+
+        card.style.setProperty("--card-x", `${offsetX.toFixed(1)}px`);
+        card.style.setProperty("--card-y", `${offsetY.toFixed(1)}px`);
+        card.style.setProperty("--card-scale", scale.toFixed(3));
+        card.style.setProperty("--card-rotate", `${rotateY.toFixed(1)}deg`);
+        card.style.setProperty("--card-opacity", opacity.toFixed(3));
+        card.style.setProperty("--card-sat", saturation.toFixed(3));
+        card.style.setProperty("--card-bright", brightness.toFixed(3));
+        card.style.setProperty("--card-z", String(zIndex));
+
+        if (distance < activeDistance) {
+          activeDistance = distance;
+          activeCard = card;
+          activeIndex = index;
+        }
+      });
+
+      cards.forEach((card) => {
+        card.classList.toggle("is-active", card === activeCard);
+      });
+
+      if (activeCard && activeCard.dataset.loopType !== "real") {
+        jumpStaffToRealCard(track, Number(activeCard.dataset.realIndex || 0));
+        return;
+      }
+
+      if (cards.length && activeCard) {
+        staffCarouselIndex = Number(activeCard.dataset.realIndex || 0);
+      }
+
+      if (prevButton) prevButton.disabled = false;
+      if (nextButton) nextButton.disabled = false;
+    }
+
+    function setupStaffCarousel() {
+      const track = document.getElementById("staff-grid");
+      const prevButton = document.querySelector('[data-staff-nav="prev"]');
+      const nextButton = document.querySelector('[data-staff-nav="next"]');
+
+      if (!track || !prevButton || !nextButton) return;
+
+      if (!track.dataset.carouselReady) {
+        prevButton.addEventListener("click", () => {
+          scrollStaffToCard(track, getAdjacentStaffCard(track, -1));
+          syncStaffAutoplay();
+        });
+
+        nextButton.addEventListener("click", () => {
+          scrollStaffToCard(track, getAdjacentStaffCard(track, 1));
+          syncStaffAutoplay();
+        });
+
+        track.addEventListener(
+          "scroll",
+          () => {
+            window.requestAnimationFrame(updateStaffCarouselState);
+          },
+          { passive: true }
+        );
+
+        track.addEventListener("mouseenter", stopStaffAutoplay);
+        track.addEventListener("mouseleave", startStaffAutoplay);
+        track.addEventListener("focusin", stopStaffAutoplay);
+        track.addEventListener("focusout", startStaffAutoplay);
+
+        window.addEventListener("resize", updateStaffCarouselState);
+        track.dataset.carouselReady = "true";
+      }
+
+      updateStaffCarouselState();
+    }
+
+    function isStaffPageActive() {
+      const staffSection = document.querySelector('.section[data-page="staff"]');
+      return Boolean(staffSection && staffSection.classList.contains("active"));
+    }
+
+    function getStaffCards(track) {
+      return Array.from(track.querySelectorAll(".staff-card"));
+    }
+
+    function getAdjacentStaffCard(track, direction) {
+      const cards = getStaffCards(track);
+      if (!cards.length) return;
+
+      const current = getCurrentStaffCard(track) || cards[0];
+      const currentIndex = cards.indexOf(current);
+      if (currentIndex === -1) return getRealStaffCard(track, 0) || cards[0];
+
+      const step = direction >= 0 ? 1 : -1;
+      const nextCard = cards[currentIndex + step];
+      if (nextCard) return nextCard;
+
+      if (step > 0) {
+        return cards.find((card) => card.dataset.loopType === "real") || cards[0];
+      }
+
+      return [...cards].reverse().find((card) => card.dataset.loopType === "real") || cards[cards.length - 1];
+    }
+
+    function advanceStaffCarousel() {
+      const track = document.getElementById("staff-grid");
+      if (!track) return;
+
+      scrollStaffToCard(track, getAdjacentStaffCard(track, 1));
+    }
+
+    function stopStaffAutoplay() {
+      if (staffAutoRotateTimer) {
+        clearInterval(staffAutoRotateTimer);
+        staffAutoRotateTimer = null;
+      }
+    }
+
+    function startStaffAutoplay() {
+      stopStaffAutoplay();
+      if (!isStaffPageActive()) return;
+
+      staffAutoRotateTimer = setInterval(() => {
+        if (!isStaffPageActive()) {
+          stopStaffAutoplay();
+          return;
+        }
+        advanceStaffCarousel();
+      }, 3600);
+    }
+
+    function syncStaffAutoplay() {
+      if (isStaffPageActive()) {
+        startStaffAutoplay();
+      } else {
+        stopStaffAutoplay();
+      }
+    }
+
+    function renderVip() {
+      const vipToneColors = {
+        silver: "#f5f5f5",
+        gold: "#f8cd78",
+        onyx: "#e4a8ff",
+        ruby: "#ff6a6a"
+      };
+
+      document.getElementById("vip-grid").innerHTML = vipTiers
+        .map(
+          (tier) => `
+            <article class="vip-card ${tier.tone}">
+              <div class="vip-top">
+                <h3>${tier.name}</h3>
+                <svg viewBox="0 0 48 48" width="42" height="42" aria-hidden="true" fill="none" stroke="${vipToneColors[tier.tone] || "#f5f5f5"}" stroke-width="2">
+                  <path d="M10 18l14-10 14 10-14 12-14-12Z" stroke-linejoin="round" />
+                  <path d="M24 30v10" stroke-linecap="round" />
+                  <path d="M16 40h16" stroke-linecap="round" />
+                  <path d="M18 18l6 6 6-6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="vip-tier">
+                <div class="label">${tier.label}</div>
+                <ul>
+                  ${tier.benefits.map((benefit) => `<li><span class="bullet">+</span><span>${benefit}</span></li>`).join("")}
+                </ul>
+              </div>
+              <div class="vip-price">${tier.price}</div>
+              <button class="button ${tier.tone === "gold" ? "ghost" : "primary"}" type="button">Become a VIP</button>
+            </article>
+          `
+        )
+        .join("");
+    }
+
+    function init() {
+      renderCategories();
+      renderStaff();
+      renderVip();
+
+      navButtons.forEach((button) => {
+        button.addEventListener("click", () => setPage(button.dataset.nav));
+      });
+
+      window.addEventListener("hashchange", () => {
+        const page = (location.hash || "#home").slice(1);
+        setPage(page);
+      });
+
+      const initial = (location.hash || "#home").slice(1);
+      setPage(initial);
+    }
+
+    init();
+  </script>
 </body>
 </html>
